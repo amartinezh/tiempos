@@ -19,6 +19,8 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    //
+    
     private String description;
     private Double price;
     
