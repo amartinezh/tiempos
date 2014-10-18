@@ -1,4 +1,4 @@
-package com.ventura.tiempos.repository;
+package com.ventura.tiempos.repository.login;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ventura.tiempos.domain.User;
+import com.ventura.tiempos.domain.login.User;
 
 @Repository(value = "userDao")
 public class JPAUserDao implements UserDao {

@@ -1,12 +1,12 @@
-package com.ventura.tiempos.service;
+package com.ventura.tiempos.service.login;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.ventura.tiempos.domain.User;
-import com.ventura.tiempos.repository.UserDao;
+import com.ventura.tiempos.domain.login.User;
+import com.ventura.tiempos.repository.login.UserDao;
 
 @Component
 public class SimpleUserManager implements UserManager {

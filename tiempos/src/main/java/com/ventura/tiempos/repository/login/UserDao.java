@@ -1,8 +1,8 @@
-package com.ventura.tiempos.repository;
+package com.ventura.tiempos.repository.login;
 
 import java.util.List;
 
-import com.ventura.tiempos.domain.User;
+import com.ventura.tiempos.domain.login.User;
 
 public interface UserDao {
 

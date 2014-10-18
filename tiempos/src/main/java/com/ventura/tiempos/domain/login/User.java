@@ -1,4 +1,4 @@
-package com.ventura.tiempos.domain;
+package com.ventura.tiempos.domain.login;
 
 import java.io.Serializable;
 import javax.persistence.Column;

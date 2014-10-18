@@ -1,9 +1,9 @@
-package com.ventura.tiempos.service;
+package com.ventura.tiempos.service.login;
 
 import java.io.Serializable;
 import java.util.List;
 
-import com.ventura.tiempos.domain.User;
+import com.ventura.tiempos.domain.login.User;
 
 public interface UserManager extends Serializable {
 
