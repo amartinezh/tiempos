@@ -1,8 +1,11 @@
 package com.ventura.tiempos.web.login;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,9 +31,14 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value = "/validar", method = RequestMethod.POST)
-	public String addEmployee(@ModelAttribute("SpringWeb")User user, ModelMap model) {
+	public String addEmployee(@ModelAttribute("SpringWeb") User user, BindingResult result, ModelMap model) {
 	  model.addAttribute("id", user.getId());
 	  model.addAttribute("pass", user.getPass());
+	  
+	  if (result.hasErrors()) {
+		  return "key/login";
+	  }
+
 	  if (userManager.val(user.getId(), user.getPass()))
 		  return "dashboard";
 	  else
