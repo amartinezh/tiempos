@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -21,11 +22,12 @@ public class User implements Serializable {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @NotEmpty 
-    @Email (message = "Please enter your email addresss.")
+    @NotEmpty
+	@Email
     private String id;
 
     @NotEmpty(message = "Please enter your password.")
+	@Size(min = 6, max = 15, message = "Your password must between 6 and 15 characters")
     private String pass;
     
     public String getId()

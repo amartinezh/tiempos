@@ -26,23 +26,23 @@ public class IndexController {
 	private UserManager userManager;
 
 	@RequestMapping(value = "/ingreso", method = RequestMethod.GET)
-	public ModelAndView employee() {
+	public ModelAndView login() {
 		return new ModelAndView("key/index", "command", new User());
 	}
 	
-	@RequestMapping(value = "/validar", method = RequestMethod.POST)
-	public String addEmployee(@ModelAttribute("SpringWeb") User user, BindingResult result, ModelMap model) {
+	@RequestMapping(value = "/ingreso", method = RequestMethod.POST)
+	public ModelAndView addEmployee(@Valid @ModelAttribute("login") User user, BindingResult result, ModelMap model) {
 	  model.addAttribute("id", user.getId());
 	  model.addAttribute("pass", user.getPass());
 	  
 	  if (result.hasErrors()) {
-		  return "key/login";
+		  return new ModelAndView("key/index", "command", new User());
 	  }
 
 	  if (userManager.val(user.getId(), user.getPass()))
-		  return "dashboard";
+		  return new ModelAndView("dashboard");
 	  else
-		  return "key/login";
+		  return new ModelAndView("key/login");
 	}
 
 	public void setuserManager(UserManager userManager) {
