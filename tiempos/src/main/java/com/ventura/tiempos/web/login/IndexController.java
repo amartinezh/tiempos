@@ -31,7 +31,7 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value = "/ingreso", method = RequestMethod.POST)
-	public ModelAndView addEmployee(@Valid @ModelAttribute("login") User user, BindingResult result, ModelMap model) {
+	public ModelAndView doLogin(@Valid @ModelAttribute("login") User user, BindingResult result, ModelMap model) {
 	  model.addAttribute("id", user.getId());
 	  model.addAttribute("pass", user.getPass());
 	  

@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include.jsp" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
@@ -112,7 +113,7 @@
 					<div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
 						<div class="well no-padding">
 							<!--  <form action="index.html" id="login-form" class="smart-form client-form"> -->
-							<form:form method="POST" ModelAttribute="login" class="smart-form client-form">
+							<form:form method="POST" ModelAttribute="login" >
 								<header>
 									Sign In
 								</header>
@@ -122,14 +123,15 @@
 										<label class="label">E-mail</label>
 										<label class="input"> <i class="icon-append fa fa-user"></i>
 											<form:input path="id" /> <form:errors path="id" cssclass="error"/>
-											<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Por favor ingrese su identificación</b></label>
+											<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Por favor ingrese su identificaciÃ³n</b></label>
 									</section>
 
 									<section>
 										<label class="label">Password</label>
 										<label class="input"> <i class="icon-append fa fa-lock"></i>
 											<!-- <input type="password" name="password">  --> 
-											<form:input path="pass"/>  <form:errors path="pass" cssClass="error"/>
+											<form:input path="pass"/>  
+											<form:errors path="pass" cssClass="error"/>
 											<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Ingrese su clave</b> </label>
 										<div class="note">
 											<a href="forgotpassword.html">Olvido la clave?</a>
