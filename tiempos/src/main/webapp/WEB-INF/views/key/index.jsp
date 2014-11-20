@@ -1,4 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include.jsp" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
@@ -53,11 +52,7 @@
 		<link rel="apple-touch-startup-image" href="<c:url value="/resources/img/splash/ipad-landscape.png" />" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
 		<link rel="apple-touch-startup-image" href="<c:url value="/resources/img/splash/ipad-portrait.png" />" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
 		<link rel="apple-touch-startup-image" href="<c:url value="/resources/img/splash/iphone.png" />" media="screen and (max-device-width: 320px)">
-		<style>
-		    .error {
-		        color: red; font-weight: bold;
-		    }
-		</style>
+
 	</head>
 	
 	<body class="animated fadeInDown">
@@ -113,7 +108,7 @@
 					<div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
 						<div class="well no-padding">
 							<!--  <form action="index.html" id="login-form" class="smart-form client-form"> -->
-							<form:form method="POST" ModelAttribute="login" >
+							<form:form method="POST" action="validar" ModelAttribute="user" commandName="user" class="smart-form client-form">
 								<header>
 									Sign In
 								</header>
@@ -122,16 +117,17 @@
 									<section>
 										<label class="label">E-mail</label>
 										<label class="input"> <i class="icon-append fa fa-user"></i>
-											<form:input path="id" /> <form:errors path="id" cssclass="error"/>
-											<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Por favor ingrese su identificaciÃ³n</b></label>
+											<form:input path="id" />
+											<form:errors path="id" cssclass="error"/>
+											<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Por favor ingrese su identificación</b></label>
 									</section>
 
 									<section>
 										<label class="label">Password</label>
 										<label class="input"> <i class="icon-append fa fa-lock"></i>
 											<!-- <input type="password" name="password">  --> 
-											<form:input path="pass"/>  
-											<form:errors path="pass" cssClass="error"/>
+											<form:input path="pass"/>
+											<form:errors path="pass" cssclass="error"/>  
 											<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Ingrese su clave</b> </label>
 										<div class="note">
 											<a href="forgotpassword.html">Olvido la clave?</a>

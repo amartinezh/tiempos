@@ -1,5 +1,7 @@
 package com.ventura.tiempos.web.login;
 
+import java.util.Map;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,27 +24,30 @@ public class IndexController {
 	/** Logger for this class and subclasses */
 	protected final Log logger = LogFactory.getLog(getClass());
 
+	///
+	
 	@Autowired
 	private UserManager userManager;
 
 	@RequestMapping(value = "/ingreso", method = RequestMethod.GET)
-	public ModelAndView login() {
-		return new ModelAndView("key/index", "command", new User());
+	public String employee(Map<String, Object> model) {
+		model.put("user", new User());
+		return "key/index";
 	}
 	
-	@RequestMapping(value = "/ingreso", method = RequestMethod.POST)
-	public ModelAndView doLogin(@Valid @ModelAttribute("login") User user, BindingResult result, ModelMap model) {
-	  model.addAttribute("id", user.getId());
-	  model.addAttribute("pass", user.getPass());
-	  
+	@RequestMapping(value = "/validar", method = RequestMethod.POST)
+	public String addEmployee(@Valid @ModelAttribute("user") User user, BindingResult result, Map<String, Object> model) {
 	  if (result.hasErrors()) {
-		  return new ModelAndView("key/index", "command", new User());
+		  return "key/index";
+	  } else {
+		  model.put("id", user.getId());
+		  model.put("pass", user.getPass());
+		  //
+		  if (userManager.val(user.getId(), user.getPass()))
+			  return "dashboard";
+		  else
+			  return "key/login";
 	  }
-
-	  if (userManager.val(user.getId(), user.getPass()))
-		  return new ModelAndView("dashboard");
-	  else
-		  return new ModelAndView("key/login");
 	}
 
 	public void setuserManager(UserManager userManager) {
