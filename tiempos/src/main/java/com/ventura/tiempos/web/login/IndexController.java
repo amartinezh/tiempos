@@ -25,7 +25,6 @@ public class IndexController {
 	protected final Log logger = LogFactory.getLog(getClass());
 
 	///
-	
 	@Autowired
 	private UserManager userManager;
 
@@ -45,8 +44,11 @@ public class IndexController {
 		  //
 		  if (userManager.val(user.getId(), user.getPass()))
 			  return "dashboard";
-		  else
-			  return "key/login";
+		  else{
+			  model.put("msg", "<script type=\"text/javascript\">$( window ).load(function() { adv(); }); </script>");
+			  //return "key/login";
+			  return "key/index";
+		  }
 	  }
 	}
 

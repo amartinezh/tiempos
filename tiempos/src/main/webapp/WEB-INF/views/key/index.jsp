@@ -52,21 +52,13 @@
 		<link rel="apple-touch-startup-image" href="<c:url value="/resources/img/splash/ipad-landscape.png" />" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
 		<link rel="apple-touch-startup-image" href="<c:url value="/resources/img/splash/ipad-portrait.png" />" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
 		<link rel="apple-touch-startup-image" href="<c:url value="/resources/img/splash/iphone.png" />" media="screen and (max-device-width: 320px)">
-
+		<style type="text/css">
+			.error {
+				color: red;
+			}
+		</style>
 	</head>
-	
 	<body class="animated fadeInDown">
-
-		<header id="header">
-
-			<div id="logo-group">
-				<span id="logo"> <img src="<c:url value="/resources/img/logo.png" />" alt="SmartAdmin"> </span>
-			</div>
-
-			<span id="extr-page-header-space"> <span class="hidden-mobile">Need an account?</span> <a href="register.html" class="btn btn-danger">Create account</a> </span>
-
-		</header>
-
 		<div id="main" role="main">
 
 			<!-- MAIN CONTENT -->
@@ -74,43 +66,26 @@
 
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
-						<h1 class="txt-color-red login-header-big">SmartAdmin</h1>
+						<h1 class="txt-color-red login-header-big">Papeles Nacionales S.A.</h1>
 						<div class="hero">
 
 							<div class="pull-left login-desc-box-l">
-								<h4 class="paragraph-header">It's Okay to be Smart. Experience the simplicity of SmartAdmin, everywhere you go!</h4>
-								<div class="login-app-icons">
-									<a href="javascript:void(0);" class="btn btn-danger btn-sm">Frontend Template</a>
-									<a href="javascript:void(0);" class="btn btn-danger btn-sm">Find out more</a>
-								</div>
+								<h4 class="paragraph-header">Intranet Papeles Nacionales</h4>
+								
 							</div>
 							
-							<img src="<c:url value="/resources/img/demo/iphoneview.png" />" class="pull-right display-image" alt="" style="width:210px">
-
-						</div>
-
-						<div class="row">
-							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-								<h5 class="about-heading">About SmartAdmin - Are you up to date?</h5>
-								<p>
-									Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.
-								</p>
-							</div>
-							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-								<h5 class="about-heading">Not just your average template!</h5>
-								<p>
-									Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi voluptatem accusantium!
-								</p>
-							</div>
+						<!-- <img src="<c:url value="/resources/img/demo/iphoneview.png" />" class="pull-right display-image" alt="" style="width:210px"> 
+						 -->	
 						</div>
 
 					</div>
+					
 					<div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
 						<div class="well no-padding">
 							<!--  <form action="index.html" id="login-form" class="smart-form client-form"> -->
 							<form:form method="POST" action="validar" ModelAttribute="user" commandName="user" class="smart-form client-form">
 								<header>
-									Sign In
+									Ingreso al Sistema
 								</header>
 
 								<fieldset>
@@ -150,21 +125,6 @@
 							<!--  </form>  -->
 							</form:form>
 						</div>
-						
-						<h5 class="text-center"> - Or sign in using -</h5>
-															
-							<ul class="list-inline text-center">
-								<li>
-									<a href="javascript:void(0);" class="btn btn-primary btn-circle"><i class="fa fa-facebook"></i></a>
-								</li>
-								<li>
-									<a href="javascript:void(0);" class="btn btn-info btn-circle"><i class="fa fa-twitter"></i></a>
-								</li>
-								<li>
-									<a href="javascript:void(0);" class="btn btn-warning btn-circle"><i class="fa fa-linkedin"></i></a>
-								</li>
-							</ul>
-						
 					</div>
 				</div>
 			</div>
@@ -176,15 +136,20 @@
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 		<script src="<c:url value="/resources/js/plugin/pace/pace.min.js" />" ></script>
 
-	    <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+	    
+		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events 		
+		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> -->
+
+<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
 	    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script> if (!window.jQuery) { document.write('<script src="<c:url value="/resources/js/libs/jquery-2.0.2.min.js"/>"><\/script>');} </script>
 
 	    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 		<script> if (!window.jQuery.ui) { document.write('<script src="<c:url value="/resources/js/libs/jquery-ui-1.10.3.min.js"/>"><\/script>');} </script>
-
-		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events 		
-		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> -->
+		
+		<!-- CUSTOM NOTIFICATION -->
+		<script src="<c:url value="/resources/js/notification/SmartNotification.min.js" />"></script>
+		
 
 		<!-- BOOTSTRAP JS -->		
 		<script src="<c:url value="/resources/js/bootstrap/bootstrap.min.js" />"></script>
@@ -205,7 +170,10 @@
 		<script src="<c:url value="/resources/js/app.min.js" />" ></script>
 
 		<script type="text/javascript">
-			runAllForms();
+		
+		
+		
+		runAllForms();
 
 			$(function() {
 				// Validation
@@ -241,6 +209,17 @@
 				});
 			});
 		</script>
-
+		<script type="text/javascript">
+				function adv(){
+					 $.smallBox({
+						title : "Usuario Incorrecto",
+						content : "La información que suministró no es válida, por favor verifique!",
+						color : "#C46A69",
+						timeout: 8000,
+						icon : "fa fa-bell shake animated"
+					}); 
+				}
+		</script>
+		${msg}
 	</body>
 </html>
