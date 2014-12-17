@@ -458,5 +458,9 @@ public class Flash implements Serializable{
 	public Flash() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public String toString() {
+        return "Descripción: " + ano + ";";
+    }
 
 }

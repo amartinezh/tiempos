@@ -9,8 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.ventura.tiempos.service.reporte.FlashManager;
-import com.ventura.tiempos.service.reporte.SimpleFlashManager;
+import com.ventura.tiempos.service.reporte.FlashManagerService;
+import com.ventura.tiempos.service.reporte.impl.SimpleFlashManagerService;
 import com.ventura.tiempos.domain.reporte.Flash;
 
 
@@ -22,16 +22,12 @@ public class FlashController {
 	protected final Log logger = LogFactory.getLog(getClass());
 	
 	@Autowired
-	private FlashManager flashManager;
+	private FlashManagerService flashManagerService;
 	
 	@RequestMapping(value = "/info", method = RequestMethod.GET)
 	public String lanzar(Map<String, Object> model) {
-		model.put("flash", new SimpleFlashManager().getFlashList());
+		//model.put("flash", new SimpleFlashManager().getFlashList());
 		return "dashboard";
 	}
-		
-	public void setFlashManager(FlashManager flashManager) {
-		this.flashManager = flashManager;
-	}
-	
+
 }

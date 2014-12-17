@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ventura.tiempos.domain.reporte.Flash;
 
 
-@Repository(value="flashDao")
+@Repository
 public class JPAFlashDao implements FlashDao{
 
 	private EntityManager em = null;

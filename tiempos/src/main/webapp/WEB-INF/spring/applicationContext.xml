@@ -18,6 +18,24 @@
         <property name="username" value="postgres"/>
         <property name="password" value="admin"/>
     </bean>
+    
+    <bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+
+		<property name="packagesToScan">
+			<list>
+				<value>com.ventura.tiempo.domain</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">false</prop>
+			</props>
+		</property>
+	</bean>
 
 	<bean id="jpaAdapter"
 		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"

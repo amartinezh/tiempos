@@ -17,8 +17,8 @@ import org.apache.commons.logging.LogFactory;
 import com.ventura.tiempos.domain.login.User;
 import com.ventura.tiempos.domain.reporte.Flash;
 import com.ventura.tiempos.service.login.UserManager;
-import com.ventura.tiempos.service.reporte.FlashManager;
-import com.ventura.tiempos.service.reporte.SimpleFlashManager;
+import com.ventura.tiempos.service.reporte.FlashManagerService;
+import com.ventura.tiempos.service.reporte.impl.SimpleFlashManagerService;
 
 @Controller
 @RequestMapping(value="/index")

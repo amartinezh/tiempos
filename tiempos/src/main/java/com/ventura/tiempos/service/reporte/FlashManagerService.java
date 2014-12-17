@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.ventura.tiempos.domain.reporte.Flash;
 
-public interface FlashManager extends Serializable {
+public interface FlashManagerService extends Serializable {
 
 	public List<Flash> getFlashList();
 	
