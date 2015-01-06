@@ -22,15 +22,19 @@ public class Flash implements Serializable{
 	
 	@Id	
 	@NotEmpty
+	@Column
 	private int ano;
 	@Id
 	@NotEmpty
+	@Column
 	private BigDecimal cocust;
 	@Id
 	@NotEmpty
+	@Column
 	private String coprod;
 	@Id
 	@NotEmpty
+	@Column
 	private int mes;	
 	@Column
 	private int cocia;
@@ -457,6 +461,22 @@ public class Flash implements Serializable{
 	
 	public Flash() {
 		// TODO Auto-generated constructor stub
+	}
+		
+	public Flash(String cozon, String codzbp, BigDecimal ckqty, BigDecimal cpqty, BigDecimal clord, BigDecimal cldev, BigDecimal clnet, BigDecimal cpdte, BigDecimal clqty, BigDecimal clqtyb, BigDecimal clnetb, BigDecimal clnetc, String codesz) {
+		this.cozon = cozon;
+		this.codzbp = codzbp;
+		this.ckqty = ckqty;
+		this.cpqty = cpqty;
+		this.clord = clord;
+		this.cldev = cldev;
+		this.clnet = clnet;
+		this.cpdte = cpdte;
+		this.clqty = clqty;
+		this.clqtyb = clqtyb;
+		this.clnetb = clnetb;
+		this.clnetc = clnetc;
+		this.codesz = codesz;
 	}
 	
 	public String toString() {

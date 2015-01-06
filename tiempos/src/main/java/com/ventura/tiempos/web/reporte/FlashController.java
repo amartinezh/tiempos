@@ -1,6 +1,10 @@
 package com.ventura.tiempos.web.reporte;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
+
+import javax.swing.JOptionPane;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -26,8 +30,25 @@ public class FlashController {
 	
 	@RequestMapping(value = "/info", method = RequestMethod.GET)
 	public String lanzar(Map<String, Object> model) {
-		//model.put("flash", new SimpleFlashManager().getFlashList());
+		List<Flash> l = new LinkedList<Flash>();
+		model.put("flash", new Flash());
+		model.put("flash1ist", flashManagerService.getFlashList());
+		/*
+		List<Flash> la = flashManagerService.getFlashList();
+		int j = 0; 
+		for (Object flash : la) {
+		//	JOptionPane.showMessageDialog(null, ((String)(flash.getCozon())));
+		//	JOptionPane.showMessageDialog(null, ((Flash)(flash)).getCozon());
+			j++;
+		}
+		model.put("jj", j);
+		*/
 		return "dashboard";
+	}
+	
+	@RequestMapping(value = "/cerrarSesion", method = RequestMethod.GET)
+	public String salir(Map<String, Object> model) {
+		return "key/index";
 	}
 
 }

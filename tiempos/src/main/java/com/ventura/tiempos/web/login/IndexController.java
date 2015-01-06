@@ -42,7 +42,7 @@ public class IndexController {
 		  return "key/index";
 	  } else {
 		  model.put("id", user.getId());
-		  model.put("pass", user.getPass());
+	//	  model.put("pass", user.getPass());
 		  if (userManager.val(user.getId(), user.getPass())) {
 			  return "key/entrar";
 		  } else {

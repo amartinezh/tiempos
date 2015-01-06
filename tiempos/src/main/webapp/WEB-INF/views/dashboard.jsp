@@ -1,4 +1,7 @@
-<%@ include file="/WEB-INF/views/include.jsp" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en-us">
 	<head>
@@ -54,87 +57,16 @@
 		<link rel="apple-touch-startup-image" href="<c:url value="/resources/img/splash/iphone.png" />" media="screen and (max-device-width: 320px)">
 
 	</head>
-<body class="">
+	<body class="">
 		<!-- possible classes: minified, fixed-ribbon, fixed-header, fixed-width-->
 
 		<!-- HEADER -->
 		<header id="header">
 			<div id="logo-group">
-
 				<!-- PLACE YOUR LOGO HERE -->
 				<span id="logo"> <img src="<c:url value="/resources/img/logo.png"/>" alt="SmartAdmin"> </span>
 				<!-- END LOGO PLACEHOLDER -->
-
-				<!-- Note: The activity badge color changes when clicked and resets the number to 0
-				Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications -->
-				<span id="activity" class="activity-dropdown"> <i class="fa fa-user"></i> <b class="badge"> 21 </b> </span>
-
-				<!-- AJAX-DROPDOWN : control this dropdown height, look and feel from the LESS variable file -->
-				<div class="ajax-dropdown">
-
-					<!-- the ID links are fetched via AJAX to the ajax container "ajax-notifications" -->
-					<div class="btn-group btn-group-justified" data-toggle="buttons">
-						<label class="btn btn-default">
-							<input type="radio" name="activity" id="ajax/notify/mail.html">
-							Msgs (14) </label>
-						<label class="btn btn-default">
-							<input type="radio" name="activity" id="ajax/notify/notifications.html">
-							notify (3) </label>
-						<label class="btn btn-default">
-							<input type="radio" name="activity" id="ajax/notify/tasks.html">
-							Tasks (4) </label>
-					</div>
-
-					<!-- notification content -->
-					<div class="ajax-notifications custom-scroll">
-
-						<div class="alert alert-transparent">
-							<h4>Click a button to show messages here</h4>
-							This blank page message helps protect your privacy, or you can show the first message here automatically.
-						</div>
-
-						<i class="fa fa-lock fa-4x fa-border"></i>
-
-					</div>
-					<!-- end notification content -->
-
-					<!-- footer: refresh area -->
-					<span> Last updated on: 12/12/2013 9:43AM
-						<button type="button" data-loading-text="<i class='fa fa-refresh fa-spin'></i> Loading..." class="btn btn-xs btn-default pull-right">
-							<i class="fa fa-refresh"></i>
-						</button> </span>
-					<!-- end footer -->
-
-				</div>
-				<!-- END AJAX-DROPDOWN -->
 			</div>
-
-			<!-- projects dropdown -->
-			<div class="project-context hidden-xs">
-
-				<span class="label">Projects:</span>
-				<span class="project-selector dropdown-toggle" data-toggle="dropdown">Recent projects <i class="fa fa-angle-down"></i></span>
-
-				<!-- Suggestion: populate this list with fetch and push technique -->
-				<ul class="dropdown-menu">
-					<li>
-						<a href="javascript:void(0);">Online e-merchant management system - attaching integration with the iOS</a>
-					</li>
-					<li>
-						<a href="javascript:void(0);">Notes on pipeline upgradee</a>
-					</li>
-					<li>
-						<a href="javascript:void(0);">Assesment Report for merchant account</a>
-					</li>
-					<li class="divider"></li>
-					<li>
-						<a href="javascript:void(0);"><i class="fa fa-power-off"></i> Clear</a>
-					</li>
-				</ul>
-				<!-- end dropdown-menu-->
-
-			</div>
-			<!-- end projects dropdown -->
 
 			<!-- pulled right: nav area -->
 			<div class="pull-right">
@@ -148,29 +80,10 @@
 				<!-- #MOBILE -->
 				<!-- Top menu profile link : this shows only when top menu is active -->
 				<ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
-					<li class="">
-						<a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown"> 
-							<img src="<c:url value="/resources/img/avatars/sunny.png"/>" alt="John Doe" class="online" />  
-						</a>
-						<ul class="dropdown-menu pull-right">
+					<li class="">						
+						<ul class="dropdown-menu pull-right">							
 							<li>
-								<a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0"><i class="fa fa-cog"></i> Setting</a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="profile.html" class="padding-10 padding-top-0 padding-bottom-0"> <i class="fa fa-user"></i> <u>P</u>rofile</a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="toggleShortcut"><i class="fa fa-arrow-down"></i> <u>S</u>hortcut</a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="launchFullscreen"><i class="fa fa-arrows-alt"></i> Full <u>S</u>creen</a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="login.html" class="padding-10 padding-top-5 padding-bottom-5" data-action="userLogout"><i class="fa fa-sign-out fa-lg"></i> <strong><u>L</u>ogout</strong></a>
+								<a href="login.html" class="padding-10 padding-top-5 padding-bottom-5" data-action="userLogout"><i class="fa fa-sign-out fa-lg"></i> <strong><u>S</u>alir</strong></a>
 							</li>
 						</ul>
 					</li>
@@ -178,471 +91,24 @@
 
 				<!-- logout button -->
 				<div id="logout" class="btn-header transparent pull-right">
-					<span> <a href="login.html" title="Sign Out" data-action="userLogout" data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i class="fa fa-sign-out"></i></a> </span>
+					<span> <a href="#" title="Sign Out" data-action="userLogout" data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i class="fa fa-sign-out"></i></a> </span>
 				</div>
 				<!-- end logout button -->
-
-				<!-- search mobile button (this is hidden till mobile view port) -->
-				<div id="search-mobile" class="btn-header transparent pull-right">
-					<span> <a href="javascript:void(0)" title="Search"><i class="fa fa-search"></i></a> </span>
-				</div>
-				<!-- end search mobile button -->
-
-				<!-- input: search field -->
-				<form action="search.html" class="header-search pull-right">
-					<input id="search-fld"  type="text" name="param" placeholder="Find reports and more" data-autocomplete='[
-					"ActionScript",
-					"AppleScript",
-					"Asp",
-					"BASIC",
-					"C",
-					"C++",
-					"Clojure",
-					"COBOL",
-					"ColdFusion",
-					"Erlang",
-					"Fortran",
-					"Groovy",
-					"Haskell",
-					"Java",
-					"JavaScript",
-					"Lisp",
-					"Perl",
-					"PHP",
-					"Python",
-					"Ruby",
-					"Scala",
-					"Scheme"]'>
-					<button type="submit">
-						<i class="fa fa-search"></i>
-					</button>
-					<a href="javascript:void(0);" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
-				</form>
-				<!-- end input: search field -->
-
-				<!-- fullscreen button -->
-				<div id="fullscreen" class="btn-header transparent pull-right">
-					<span> <a href="javascript:void(0);" data-action="launchFullscreen" title="Full Screen"><i class="fa fa-arrows-alt"></i></a> </span>
-				</div>
-				<!-- end fullscreen button -->
 				
-				<!-- #Voice Command: Start Speech -->
-				<div id="speech-btn" class="btn-header transparent pull-right hidden-sm hidden-xs">
-					<div> 
-						<a href="javascript:void(0)" title="Voice Command" data-action="voiceCommand"><i class="fa fa-microphone"></i></a> 
-						<div class="popover bottom"><div class="arrow"></div>
-							<div class="popover-content">
-								<h4 class="vc-title">Voice command activated <br><small>Please speak clearly into the mic</small></h4>
-								<h4 class="vc-title-error text-center">
-									<i class="fa fa-microphone-slash"></i> Voice command failed
-									<br><small class="txt-color-red">Must <strong>"Allow"</strong> Microphone</small>
-									<br><small class="txt-color-red">Must have <strong>Internet Connection</strong></small>
-								</h4>
-								<a href="javascript:void(0);" class="btn btn-success" onclick="commands.help()">See Commands</a> 
-								<a href="javascript:void(0);" class="btn bg-color-purple txt-color-white" onclick="$('#speech-btn .popover').fadeOut(50);">Close Popup</a> 
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- end voice command -->
-
-				<!-- multiple lang dropdown : find all flags in the flags page -->
-				<ul class="header-dropdown-list hidden-xs">
-					<li>
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="<c:url value="/resources/img/blank.gif"/>" class="flag flag-us" alt="United States"> <span> English (US) </span> <i class="fa fa-angle-down"></i> </a>
-						<ul class="dropdown-menu pull-right">
-							<li class="active">
-								<a href="javascript:void(0);"><img src="<c:url value="/resources/img/blank.gif"/>" class="flag flag-us" alt="United States"> English (US)</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);"><img src="<c:url value="/resources/img/blank.gif"/>" class="flag flag-fr" alt="France"> Français</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);"><img src="<c:url value="/resources/img/blank.gif"/>" class="flag flag-es" alt="Spanish"> Español</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);"><img src="<c:url value="/resources/img/blank.gif"/>" class="flag flag-de" alt="German"> Deutsch</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);"><img src="<c:url value="/resources/img/blank.gif"/>" class="flag flag-jp" alt="Japan"> 日本語</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);"><img src="<c:url value="/resources/img/blank.gif"/>" class="flag flag-cn" alt="China"> 中文</a>
-							</li>	
-							<li>
-								<a href="javascript:void(0);"><img src="<c:url value="/resources/img/blank.gif"/>" class="flag flag-it" alt="Italy"> Italiano</a>
-							</li>	
-							<li>
-								<a href="javascript:void(0);"><img src="<c:url value="/resources/img/blank.gif"/>" class="flag flag-pt" alt="Portugal"> Portugal</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);"><img src="<c:url value="/resources/img/blank.gif"/>" class="flag flag-ru" alt="Russia"> Русский язык</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);"><img src="<c:url value="/resources/img/blank.gif"/>" class="flag flag-kp" alt="Korea"> 한국어</a>
-							</li>						
-							
-						</ul>
-					</li>
-				</ul>
-				<!-- end multiple lang -->
-
 			</div>
 			<!-- end pulled right: nav area -->
 
 		</header>
 		<!-- END HEADER -->
 
-		<!-- Left panel : Navigation area -->
-		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
-		<aside id="left-panel">
-
-			<!-- User info -->
-			<div class="login-info">
-				<span> <!-- User image size is adjusted inside CSS, it should stay as it --> 
-					
-					<a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
-						<img src="<c:url value="/resources/img/avatars/sunny.png"/>" alt="me" class="online" /> 
-						<span>
-							john.doe 
-						</span>
-						<i class="fa fa-angle-down"></i>
-					</a> 
-					
-				</span>
-			</div>
-			<!-- end user info -->
-
-			<!-- NAVIGATION : This navigation is also responsive
-
-			To make this navigation dynamic please make sure to link the node
-			(the reference to the nav > ul) after page load. Or the navigation
-			will not initialize.
-			-->
-			<nav>
-				<!-- NOTE: Notice the gaps after each icon usage <i></i>..
-				Please note that these links work a bit different than
-				traditional href="" links. See documentation for details.
-				-->
-
-				<ul>
-					<li>
-						<a href="index.html" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span></a>
-					</li>
-					<li>
-						<a href="inbox.html"><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Inbox</span><span class="badge pull-right inbox-badge">14</span></a>
-					</li>
-					<li>
-						<a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">Graphs</span></a>
-						<ul>
-							<li>
-								<a href="flot.html">Flot Chart</a>
-							</li>
-							<li>
-								<a href="morris.html">Morris Charts</a>
-							</li>
-							<li>
-								<a href="inline-charts.html">Inline Charts</a>
-							</li>
-							<li>
-								<a href="dygraphs.html">Dygraphs <span class="badge pull-right inbox-badge bg-color-yellow">new</span></a>
-							</li>
-						</ul>
-					</li>
-					<li class="active">
-						<a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Tables</span></a>
-						<ul>
-							<li>
-								<a href="table.html">Normal Tables</a>
-							</li>
-							<li class="active">
-								<a href="datatables.html">Data Tables <span class="badge inbox-badge bg-color-greenLight">v1.10</span></a>
-							</li>
-							<li>
-								<a href="jqgrid.html">Jquery Grid</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="#"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i> <span class="menu-item-parent">Forms</span></a>
-						<ul>
-							<li>
-								<a href="form-elements.html">Smart Form Elements</a>
-							</li>
-							<li>
-								<a href="form-templates.html">Smart Form Layouts</a>
-							</li>
-							<li>
-								<a href="validation.html">Smart Form Validation</a>
-							</li>
-							<li>
-								<a href="bootstrap-forms.html">Bootstrap Form Elements</a>
-							</li>
-							<li>
-								<a href="plugins.html">Form Plugins</a>
-							</li>
-							<li>
-								<a href="wizard.html">Wizards</a>
-							</li>
-							<li>
-								<a href="other-editors.html">Bootstrap Editors</a>
-							</li>
-							<li>
-								<a href="dropzone.html">Dropzone </a>
-							</li>
-							<li>
-								<a href="image-editor.html">Image Cropping <span class="badge pull-right inbox-badge bg-color-yellow">new</span></a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i> <span class="menu-item-parent">UI Elements</span></a>
-						<ul>
-							<li>
-								<a href="general-elements.html">General Elements</a>
-							</li>
-							<li>
-								<a href="buttons.html">Buttons</a>
-							</li>
-							<li>
-								<a href="#">Icons</a>
-								<ul>
-									<li>
-										<a href="fa.html"><i class="fa fa-plane"></i> Font Awesome</a>
-									</li>	
-									<li>
-										<a href="glyph.html"><i class="glyphicon glyphicon-plane"></i> Glyph Icons</a>
-									</li>	
-									<li>
-										<a href="flags.html"><i class="fa fa-flag"></i> Flags</a>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<a href="grid.html">Grid</a>
-							</li>
-							<li>
-								<a href="treeview.html">Tree View</a>
-							</li>
-							<li>
-								<a href="nestable-list.html">Nestable Lists</a>
-							</li>
-							<li>
-								<a href="jqui.html">JQuery UI</a>
-							</li>
-							<li>
-								<a href="typography.html">Typography</a>
-							</li>
-							<li>
-								<a href="#">Six Level Menu</a>
-								<ul>
-									<li>
-										<a href="#"><i class="fa fa-fw fa-folder-open"></i> Item #2</a>
-										<ul>
-											<li>
-												<a href="#"><i class="fa fa-fw fa-folder-open"></i> Sub #2.1 </a>
-												<ul>
-													<li>
-														<a href="#"><i class="fa fa-fw fa-file-text"></i> Item #2.1.1</a>
-													</li>
-													<li>
-														<a href="#"><i class="fa fa-fw fa-plus"></i> Expand</a>
-														<ul>
-															<li>
-																<a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>
-															</li>
-															<li>
-																<a href="#"><i class="fa fa-fw fa-trash-o"></i> Delete</a></li>
-														</ul>
-													</li>
-												</ul>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="#"><i class="fa fa-fw fa-folder-open"></i> Item #3</a>
-		
-										<ul>
-											<li>
-												<a href="#"><i class="fa fa-fw fa-folder-open"></i> 3ed Level </a>
-												<ul>
-													<li>
-														<a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>
-													</li>
-													<li>
-														<a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>
-													</li>
-												</ul>
-											</li>
-										</ul>
-		
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-				
-					<li>
-						<a href="calendar.html"><i class="fa fa-lg fa-fw fa-calendar"><em>3</em></i> <span class="menu-item-parent">Calendar</span></a>
-					</li>
-					<li>
-						<a href="widgets.html"><i class="fa fa-lg fa-fw fa-list-alt"></i> <span class="menu-item-parent">Widgets</span></a>
-					</li>
-					<li>
-						<a href="gallery.html"><i class="fa fa-lg fa-fw fa-picture-o"></i> <span class="menu-item-parent">Gallery</span></a>
-					</li>
-					<li>
-						<a href="gmap-xml.html"><i class="fa fa-lg fa-fw fa-map-marker"></i> <span class="menu-item-parent">GMap Skins</span><span class="badge bg-color-greenLight pull-right inbox-badge">9</span></a>
-					</li>
-					<li>
-						<a href="#"><i class="fa fa-lg fa-fw fa-windows"></i> <span class="menu-item-parent">Miscellaneous</span></a>
-						<ul>
-							<li>
-								<a href="#"><i class="fa fa-lg fa-fw fa-file"></i> Other Pages</a>
-								<ul>
-									<li>
-										<a href="forum.html">Forum Layout</a>
-									</li>
-									<li>
-										<a href="profile.html">Profile</a>
-									</li>
-									<li>
-										<a href="timeline.html">Timeline</a>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<a href="pricing-table.html">Pricing Tables</a>
-							</li>
-							<li>
-								<a href="invoice.html">Invoice</a>
-							</li>
-							<li>
-								<a href="login.html" target="_top">Login</a>
-							</li>
-							<li>
-								<a href="register.html" target="_top">Register</a>
-							</li>
-							<li>
-								<a href="lock.html" target="_top">Locked Screen</a>
-							</li>
-							<li>
-								<a href="error404.html">Error 404</a>
-							</li>
-							<li>
-								<a href="error500.html">Error 500</a>
-							</li>
-							<li>
-								<a href="blank_.html">Blank Page</a>
-							</li>
-							<li>
-								<a href="email-template.html">Email Template</a>
-							</li>
-							<li>
-								<a href="search.html">Search Page</a>
-							</li>
-							<li>
-								<a href="ckeditor.html">CK Editor</a>
-							</li>
-						</ul>
-					</li>
-					<li class="top-menu-hidden">
-						<a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent">SmartAdmin Intel</span></a>
-						<ul>
-							<li>
-								<a href="difver.html"><i class="fa fa-stack-overflow"></i> Different Versions</a>
-							</li>
-							<li>
-								<a href="applayout.html"><i class="fa fa-cube"></i> App Settings</a>
-							</li>
-							<li>
-								<a href="http://bootstraphunter.com/smartadmin/BUGTRACK/track_/documentation/index.html" target="_blank"><i class="fa fa-book"></i> Documentation</a>
-							</li>
-							<li>
-								<a href="http://bootstraphunter.com/smartadmin/BUGTRACK/track_/" target="_blank"><i class="fa fa-bug"></i> Bug Tracker</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</nav>
-			<span class="minifyme" data-action="minifyMenu"> 
-				<i class="fa fa-arrow-circle-left hit"></i> 
-			</span>
-
-		</aside>
-		<!-- END NAVIGATION -->
-
 		<!-- MAIN PANEL -->
-		<div id="main" role="main">
-
-			<!-- RIBBON -->
-			<div id="ribbon">
-
-				<span class="ribbon-button-alignment"> 
-					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
-						<i class="fa fa-refresh"></i>
-					</span> 
-				</span>
-
-				<!-- breadcrumb -->
-				<ol class="breadcrumb">
-					<li>Home</li><li>Tables</li><li>Data Tables</li>
-				</ol>
-				<!-- end breadcrumb -->
-
-				<!-- You can also add more buttons to the
-				ribbon for further usability
-
-				Example below:
-
-				<span class="ribbon-button-alignment pull-right">
-				<span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
-				<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
-				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
-				</span> -->
-
-			</div>
-			<!-- END RIBBON -->
+		<div id="main" role="main" >
 
 			<!-- MAIN CONTENT -->
 			<div id="content">
-
-				<div class="row">
-					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
-						<h1 class="page-title txt-color-blueDark">
-							<i class="fa fa-table fa-fw "></i> 
-								Table 
-							<span>> 
-								Data Tables
-							</span>
-						</h1>
-					</div>
-					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
-						<ul id="sparks" class="">
-							<li class="sparks-info">
-								<h5> My Income <span class="txt-color-blue">$47,171</span></h5>
-								<div class="sparkline txt-color-blue hidden-mobile hidden-md hidden-sm">
-									1300, 1877, 2500, 2577, 2000, 2100, 3000, 2700, 3631, 2471, 2700, 3631, 2471
-								</div>
-							</li>
-							<li class="sparks-info">
-								<h5> Site Traffic <span class="txt-color-purple"><i class="fa fa-arrow-circle-up" data-rel="bootstrap-tooltip" title="Increased"></i>&nbsp;45%</span></h5>
-								<div class="sparkline txt-color-purple hidden-mobile hidden-md hidden-sm">
-									110,150,300,130,400,240,220,310,220,300, 270, 210
-								</div>
-							</li>
-							<li class="sparks-info">
-								<h5> Site Orders <span class="txt-color-greenDark"><i class="fa fa-shopping-cart"></i>&nbsp;2447</span></h5>
-								<div class="sparkline txt-color-greenDark hidden-mobile hidden-md hidden-sm">
-									110,150,300,130,400,240,220,310,220,300, 270, 210
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
 				
 				<!-- widget grid -->
-				<section id="widget-grid" class="">
+				<section id="widget-grid">
 				
 					<!-- row -->
 					<div class="row">
@@ -651,98 +117,82 @@
 						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				
 							<!-- Widget ID (each widget will need unique ID)-->
-							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
-								<!-- widget options:
-								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-				
-								data-widget-colorbutton="false"
-								data-widget-editbutton="false"
-								data-widget-togglebutton="false"
-								data-widget-deletebutton="false"
-								data-widget-fullscreenbutton="false"
-								data-widget-custombutton="false"
-								data-widget-collapsed="true"
-								data-widget-sortable="false"
-				
-								-->
-								<header>
-									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-									<h2>Standard Data Tables </h2>
-				
-								</header>
-				
+							<div class="jarviswidget jarviswidget-color-darken far" id="wid-id-0" data-widget-editbutton="false">
+							
 								<!-- widget div-->
 								<div>
-				
-									<!-- widget edit box -->
-									<div class="jarviswidget-editbox">
-										<!-- This area used as dropdown edit box -->
-				
-									</div>
-									<!-- end widget edit box -->
-				
+								
 									<!-- widget content -->
 									<div class="widget-body no-padding">
 				
-										<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
+										<table id="dt_basic" class="table table-striped table-bordered" width="100%">
 											<thead>			                
 												<tr>
 													<th data-hide="phone">Distrito</th>
-													<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> Valor Facturado</th>
+													<th data-hide="phone">Valor Facturado</th>
+													<th data-hide="phone">Presup.</th>
+													<th data-hide="phone">Total</th>
+													<th data-hide="phone">Qty</th>
+													<th data-hide="phone">Vrl</th>
+													<th data-hide="phone">BackLog</th>
+													<th data-hide="phone">Pedidas Mes</th>
+													<th data-hide="phone">Venta Día</th>
+											<!-- 	<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> Valor Facturado</th>
 													<th data-hide="phone"><i class="fa fa-fw fa-phone text-muted hidden-md hidden-sm hidden-xs"></i> Phone</th>
 													<th>Company</th>
 													<th data-hide="phone,tablet"><i class="fa fa-fw fa-map-marker txt-color-blue hidden-md hidden-sm hidden-xs"></i> Zip</th>
 													<th data-hide="phone,tablet">City</th>
 													<th data-hide="phone,tablet"><i class="fa fa-fw fa-calendar txt-color-blue hidden-md hidden-sm hidden-xs"></i> Date</th>
+													 -->	
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
+											<!--	<tr>
 													<td>1</td>
-													<td>Jennifer</td>
+											 <td>Jennifer</td>
 													<td>1-342-463-8341</td>
 													<td>Et Rutrum Non Associates</td>
 													<td>35728</td>
 													<td>Fogo</td>
 													<td>03/04/14</td>
-												</tr>
 												
-												<tr>
-													<td>97</td>
-													<td>Linda</td>
-													<td>1-546-735-8920</td>
-													<td>Dis Parturient Montes Associates</td>
-													<td>64629</td>
-													<td>Ferlach</td>
-													<td>03/29/14</td>
 												</tr>
-												<tr>
-													<td>98</td>
-													<td>Wayne</td>
-													<td>1-744-647-6144</td>
-													<td>In Industries</td>
-													<td>Xxxx</td>
-													<td>Memphis</td>
-													<td>06/11/14</td>
-												</tr>
-												<tr>
-													<td>99</td>
-													<td>Liberty</td>
-													<td>1-841-489-1665</td>
-													<td>Sed Sem Limited</td>
-													<td>27504-649</td>
-													<td>Olivola</td>
-													<td>05/24/14</td>
-												</tr>
-												<tr>
-													<td>100</td>
-													<td>Cathleen</td>
-													<td>1-883-567-6065</td>
-													<td>Eu Corporation</td>
-													<td>4286</td>
-													<td>Rotheux-Rimi?re</td>
-													<td>07/16/13</td>
-												</tr>
+										-->		
+												<c:forEach items="${flash1ist}" var="Flashh" varStatus="loopCounter">														
+													<tr>
+														<td>
+															<c:out value="${Flashh.codzbp}" />															
+														</td>
+														<td>
+															<c:out value="${Flashh.clnet}" />															
+														</td>
+														<td>
+															<c:out value="${Flashh.cpqty}" />															
+														</td>
+														<td>
+															<c:out value="${Flashh.clqty}" />															
+														</td>
+														<td>
+															<c:out value="${Flashh.clqtyb}" />
+														</td>
+														<td>
+															<c:out value="${Flashh.clnetb}" />
+														</td>
+														<td>
+															<c:out value="${Flashh.cpdte}" />
+														</td>
+														<td>
+															<c:out value="${Flashh.clord}" />
+														</td>
+														<td>
+															<c:out value="${Flashh.cldev}" />
+														</td>
+														<td>
+															<c:out value="${Flashh.ckqty}" />															
+														</td>
+													</tr>
+											  	</c:forEach>
+												 
 											</tbody>
 										</table>
 
@@ -754,343 +204,7 @@
 				
 							</div>
 							<!-- end widget -->
-				
-							<!-- Widget ID (each widget will need unique ID)-->
-							<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-1" data-widget-editbutton="false">
-								<!-- widget options:
-								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-				
-								data-widget-colorbutton="false"
-								data-widget-editbutton="false"
-								data-widget-togglebutton="false"
-								data-widget-deletebutton="false"
-								data-widget-fullscreenbutton="false"
-								data-widget-custombutton="false"
-								data-widget-collapsed="true"
-								data-widget-sortable="false"
-				
-								-->
-								<header>
-									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-									<h2>Column Filters </h2>
-				
-								</header>
-				
-								<!-- widget div-->
-								<div>
-				
-									<!-- widget edit box -->
-									<div class="jarviswidget-editbox">
-										<!-- This area used as dropdown edit box -->
-				
-									</div>
-									<!-- end widget edit box -->
-				
-									<!-- widget content -->
-									<div class="widget-body no-padding">
-				
-										<table id="datatable_fixed_column" class="table table-striped table-bordered" width="100%">
-					
-									        <thead>
-												<tr>
-													<th class="hasinput" style="width:17%">
-														<input type="text" class="form-control" placeholder="Filter Name" />
-													</th>
-													<th class="hasinput" style="width:18%">
-														<div class="input-group">
-															<input class="form-control" placeholder="Filter Position" type="text">
-															<span class="input-group-addon">
-																<span class="onoffswitch">
-																	<input type="checkbox" name="start_interval" class="onoffswitch-checkbox" id="st3">
-																	<label class="onoffswitch-label" for="st3"> 
-																		<span class="onoffswitch-inner" data-swchon-text="YES" data-swchoff-text="NO"></span> 
-																		<span class="onoffswitch-switch"></span> 
-																	</label> 
-																</span>
-															</span>
-														</div>
-																	
-																
-													</th>
-													<th class="hasinput" style="width:16%">
-														<input type="text" class="form-control" placeholder="Filter Office" />
-													</th>
-													<th class="hasinput" style="width:17%">
-														<input type="text" class="form-control" placeholder="Filter Age" />
-													</th>
-													<th class="hasinput icon-addon">
-														<input id="dateselect_filter" type="text" placeholder="Filter Date" class="form-control datepicker" data-dateformat="yy/mm/dd">
-														<label for="dateselect_filter" class="glyphicon glyphicon-calendar no-margin padding-top-15" rel="tooltip" title="" data-original-title="Filter Date"></label>
-													</th>
-													<th class="hasinput" style="width:16%">
-														<input type="text" class="form-control" placeholder="Filter Salary" />
-													</th>
-												</tr>
-									            <tr>
-								                    <th data-class="expand">Name</th>
-								                    <th>Position</th>
-								                    <th data-hide="phone">Office</th>
-								                    <th data-hide="phone">Age</th>
-								                    <th data-hide="phone,tablet">Start date</th>
-								                    <th data-hide="phone,tablet">Salary</th>
-									            </tr>
-									        </thead>
-				
-									        <tbody>
-									            <tr>
-									                <td>Tiger Nixon</td>
-									                <td>System Architect</td>
-									                <td>Edinburgh</td>
-									                <td>61</td>
-									                <td>2014/12/12</td>
-									                <td>$320,800</td>
-									            </tr>
-									            
-									            <tr>
-									                <td>Lael Greer</td>
-									                <td>Systems Administrator</td>
-									                <td>London</td>
-									                <td>21</td>
-									                <td>2014/02/27</td>
-									                <td>$103,500</td>
-									            </tr>
-									            <tr>
-									                <td>Jonas Alexander</td>
-									                <td>Developer</td>
-									                <td>San Francisco</td>
-									                <td>30</td>
-									                <td>2010/07/14</td>
-									                <td>$86,500</td>
-									            </tr>
-									            <tr>
-									                <td>Shad Decker</td>
-									                <td>Regional Director</td>
-									                <td>Edinburgh</td>
-									                <td>51</td>
-									                <td>2008/11/13</td>
-									                <td>$183,000</td>
-									            </tr>
-									            <tr>
-									                <td>Michael Bruce</td>
-									                <td>Javascript Developer</td>
-									                <td>Singapore</td>
-									                <td>29</td>
-									                <td>2011/06/27</td>
-									                <td>$183,000</td>
-									            </tr>
-									            <tr>
-									                <td>Donna Snider</td>
-									                <td>Customer Support</td>
-									                <td>New York</td>
-									                <td>27</td>
-									                <td>2011/01/25</td>
-									                <td>$112,000</td>
-									            </tr>
-									        </tbody>
-									
-										</table>
-				
-									</div>
-									<!-- end widget content -->
-				
-								</div>
-								<!-- end widget div -->
-				
-							</div>
-							<!-- end widget -->
-				
-							<!-- Widget ID (each widget will need unique ID)-->
-							<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-2" data-widget-editbutton="false">
-								<!-- widget options:
-								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-				
-								data-widget-colorbutton="false"
-								data-widget-editbutton="false"
-								data-widget-togglebutton="false"
-								data-widget-deletebutton="false"
-								data-widget-fullscreenbutton="false"
-								data-widget-custombutton="false"
-								data-widget-collapsed="true"
-								data-widget-sortable="false"
-				
-								-->
-								<header>
-									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-									<h2>Hide / Show Columns </h2>
-				
-								</header>
-				
-								<!-- widget div-->
-								<div>
-				
-									<!-- widget edit box -->
-									<div class="jarviswidget-editbox">
-										<!-- This area used as dropdown edit box -->
-				
-									</div>
-									<!-- end widget edit box -->
-				
-									<!-- widget content -->
-									<div class="widget-body no-padding">
-										
-										<table id="datatable_col_reorder" class="table table-striped table-bordered table-hover" width="100%">
-											<thead>
-												<tr>
-													<th data-hide="phone">ID</th>
-													<th data-class="expand">Name</th>
-													<th>Phone</th>
-													<th data-hide="phone">Company</th>
-													<th data-hide="phone,tablet">Zip</th>
-													<th data-hide="phone,tablet">City</th>
-													<th data-hide="phone,tablet">Date</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>1</td>
-													<td>Jennifer</td>
-													<td>1-342-463-8341</td>
-													<td>Et Rutrum Non Associates</td>
-													<td>35728</td>
-													<td>Fogo</td>
-													<td>03/04/14</td>
-												</tr>
-												<tr>
-													<td>2</td>
-													<td>Clark</td>
-													<td>1-516-859-1120</td>
-													<td>Nam Ac Inc.</td>
-													<td>7162</td>
-													<td>Machelen</td>
-													<td>03/23/13</td>
-												</tr>
-											
-												<tr>
-													<td>98</td>
-													<td>Wayne</td>
-													<td>1-744-647-6144</td>
-													<td>In Industries</td>
-													<td>Xxxx</td>
-													<td>Memphis</td>
-													<td>06/11/14</td>
-												</tr>
-												<tr>
-													<td>99</td>
-													<td>Liberty</td>
-													<td>1-841-489-1665</td>
-													<td>Sed Sem Limited</td>
-													<td>27504-649</td>
-													<td>Olivola</td>
-													<td>05/24/14</td>
-												</tr>
-												<tr>
-													<td>100</td>
-													<td>Cathleen</td>
-													<td>1-883-567-6065</td>
-													<td>Eu Corporation</td>
-													<td>4286</td>
-													<td>Rotheux-Rimi?re</td>
-													<td>07/16/13</td>
-												</tr>
-											</tbody>
-										</table>
-									
-									</div>
-									<!-- end widget content -->
-				
-								</div>
-								<!-- end widget div -->
-				
-							</div>
-							<!-- end widget -->
-				
-							<!-- Widget ID (each widget will need unique ID)-->
-							<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-3" data-widget-editbutton="false">
-								<!-- widget options:
-								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-				
-								data-widget-colorbutton="false"
-								data-widget-editbutton="false"
-								data-widget-togglebutton="false"
-								data-widget-deletebutton="false"
-								data-widget-fullscreenbutton="false"
-								data-widget-custombutton="false"
-								data-widget-collapsed="true"
-								data-widget-sortable="false"
-				
-								-->
-								<header>
-									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-									<h2>Export to PDF / Excel</h2>
-				
-								</header>
-				
-								<!-- widget div-->
-								<div>
-				
-									<!-- widget edit box -->
-									<div class="jarviswidget-editbox">
-										<!-- This area used as dropdown edit box -->
-				
-									</div>
-									<!-- end widget edit box -->
-				
-									<!-- widget content -->
-									<div class="widget-body no-padding">
-				
-										<table id="datatable_tabletools" class="table table-striped table-bordered table-hover" width="100%">
-											<thead>
-												<tr>
-													<th data-hide="phone">ID</th>
-													<th data-class="expand">Name</th>
-													<th>Phone</th>
-													<th data-hide="phone">Company</th>
-													<th data-hide="phone,tablet">Zip</th>
-													<th data-hide="phone,tablet">City</th>
-													<th data-hide="phone,tablet">Date</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>1</td>
-													<td>Jennifer</td>
-													<td>1-342-463-8341</td>
-													<td>Et Rutrum Non Associates</td>
-													<td>35728</td>
-													<td>Fogo</td>
-													<td>03/04/14</td>
-												</tr>
-											
-												<tr>
-													<td>99</td>
-													<td>Liberty</td>
-													<td>1-841-489-1665</td>
-													<td>Sed Sem Limited</td>
-													<td>27504-649</td>
-													<td>Olivola</td>
-													<td>05/24/14</td>
-												</tr>
-												<tr>
-													<td>100</td>
-													<td>Cathleen</td>
-													<td>1-883-567-6065</td>
-													<td>Eu Corporation</td>
-													<td>4286</td>
-													<td>Rotheux-Rimi?re</td>
-													<td>07/16/13</td>
-												</tr>
-											</tbody>
-										</table>
-				
-									</div>
-									<!-- end widget content -->
-				
-								</div>
-								<!-- end widget div -->
-				
-							</div>
-							<!-- end widget -->
-				
+								
 						</article>
 						<!-- WIDGET END -->
 				
@@ -1113,85 +227,13 @@
 		<div class="page-footer">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6">
-					<span class="txt-color-white">SmartAdmin WebApp © 2013-2014</span>
-				</div>
-
-				<div class="col-xs-6 col-sm-6 text-right hidden-xs">
-					<div class="txt-color-white inline-block">
-						<i class="txt-color-blueLight hidden-mobile">Last account activity <i class="fa fa-clock-o"></i> <strong>52 mins ago &nbsp;</strong> </i>
-						<div class="btn-group dropup">
-							<button class="btn btn-xs dropdown-toggle bg-color-blue txt-color-white" data-toggle="dropdown">
-								<i class="fa fa-link"></i> <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu pull-right text-left">
-								<li>
-									<div class="padding-5">
-										<p class="txt-color-darken font-sm no-margin">Download Progress</p>
-										<div class="progress progress-micro no-margin">
-											<div class="progress-bar progress-bar-success" style="width: 50%;"></div>
-										</div>
-									</div>
-								</li>
-								<li class="divider"></li>
-								<li>
-									<div class="padding-5">
-										<p class="txt-color-darken font-sm no-margin">Server Load</p>
-										<div class="progress progress-micro no-margin">
-											<div class="progress-bar progress-bar-success" style="width: 20%;"></div>
-										</div>
-									</div>
-								</li>
-								<li class="divider"></li>
-								<li>
-									<div class="padding-5">
-										<p class="txt-color-darken font-sm no-margin">Memory Load <span class="text-danger">*critical*</span></p>
-										<div class="progress progress-micro no-margin">
-											<div class="progress-bar progress-bar-danger" style="width: 70%;"></div>
-										</div>
-									</div>
-								</li>
-								<li class="divider"></li>
-								<li>
-									<div class="padding-5">
-										<button class="btn btn-block btn-default">refresh</button>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
+					<span class="txt-color-white">Flash Ventas - 2014</span>
 				</div>
 			</div>
 		</div>
 		<!-- END PAGE FOOTER -->
 
-		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
-		Note: These tiles are completely responsive,
-		you can add as many as you like
-		-->
-		<div id="shortcut">
-			<ul>
-				<li>
-					<a href="#inbox.html" class="jarvismetro-tile big-cubes bg-color-blue"> <span class="iconbox"> <i class="fa fa-envelope fa-4x"></i> <span>Mail <span class="label pull-right bg-color-darken">14</span></span> </span> </a>
-				</li>
-				<li>
-					<a href="#calendar.html" class="jarvismetro-tile big-cubes bg-color-orangeDark"> <span class="iconbox"> <i class="fa fa-calendar fa-4x"></i> <span>Calendar</span> </span> </a>
-				</li>
-				<li>
-					<a href="#gmap-xml.html" class="jarvismetro-tile big-cubes bg-color-purple"> <span class="iconbox"> <i class="fa fa-map-marker fa-4x"></i> <span>Maps</span> </span> </a>
-				</li>
-				<li>
-					<a href="#invoice.html" class="jarvismetro-tile big-cubes bg-color-blueDark"> <span class="iconbox"> <i class="fa fa-book fa-4x"></i> <span>Invoice <span class="label pull-right bg-color-darken">99</span></span> </span> </a>
-				</li>
-				<li>
-					<a href="#gallery.html" class="jarvismetro-tile big-cubes bg-color-greenLight"> <span class="iconbox"> <i class="fa fa-picture-o fa-4x"></i> <span>Gallery </span> </span> </a>
-				</li>
-				<li>
-					<a href="javascript:void(0);" class="jarvismetro-tile big-cubes selected bg-color-pinkDark"> <span class="iconbox"> <i class="fa fa-user fa-4x"></i> <span>My Profile </span> </span> </a>
-				</li>
-			</ul>
-		</div>
-		<!-- END SHORTCUT AREA -->
-
+		
 		<!--================================================== -->
 
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
