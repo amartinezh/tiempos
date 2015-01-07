@@ -26,7 +26,7 @@ th {
 	<div style="width: 95%; margin: 0 auto;">
 
 		<div id="bookDialog" style="display: none;">
-			<%@ include file="bookForm.jsp"%>
+			<%@ include file="tuForm.jsp"%>
 		</div>
 
 		<h1>List Of Books</h1>

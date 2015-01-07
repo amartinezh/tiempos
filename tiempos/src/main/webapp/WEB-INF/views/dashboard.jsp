@@ -71,11 +71,11 @@
 			<!-- pulled right: nav area -->
 			<div class="pull-right">
 				
-				<!-- collapse menu button -->
+				<!-- collapse menu button 
 				<div id="hide-menu" class="btn-header pull-right">
 					<span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
 				</div>
-				<!-- end collapse menu -->
+				 end collapse menu -->
 				
 				<!-- #MOBILE -->
 				<!-- Top menu profile link : this shows only when top menu is active -->
@@ -102,7 +102,7 @@
 		<!-- END HEADER -->
 
 		<!-- MAIN PANEL -->
-		<div id="main" role="main" >
+		
 
 			<!-- MAIN CONTENT -->
 			<div id="content">
@@ -220,7 +220,7 @@
 			</div>
 			<!-- END MAIN CONTENT -->
 
-		</div>
+		
 		<!-- END MAIN PANEL -->
 
 		<!-- PAGE FOOTER -->

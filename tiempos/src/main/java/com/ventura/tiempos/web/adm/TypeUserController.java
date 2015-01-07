@@ -14,48 +14,55 @@ import com.ventura.tiempos.domain.adm.TypeUser;
 import com.ventura.tiempos.service.adm.TypeUserService;
 
 @Controller
-@RequestMapping("/typeuser")
+@RequestMapping(value="/tipousuario")
 public class TypeUserController {
 	@Autowired
 	private TypeUserService typeuserService;
 	
-	@RequestMapping(value = { "/", "/listTypeUser" })
+	@RequestMapping(method = RequestMethod.GET)
 	public String listTypeUsers(Map<String, Object> map) {
 		map.put("typeuser", new TypeUser());
 		map.put("typeuserList", typeuserService.listTypeUser());
-		return "/typeuser/listTypeUser";
+		return "/tipousuario/listatipousuario";
 	}
 	
-	@RequestMapping("/get/{typeuserId}")
-	public String getTypeUser(@PathVariable String typeuserId, Map<String, Object> map) {
-		TypeUser typeuser = typeuserService.getTypeUser(typeuserId);
-		map.put("typeuser", typeuser);
-		return "/typeuser/typeuserForm";
+	@RequestMapping("/get/{Id}")
+	public String getBook(@PathVariable String Id, Map<String, Object> map) {
+
+		TypeUser book = typeuserService.getTypeUser(Id);
+
+		map.put("book", book);
+
+		return "/tipousuario/tuForm";
 	}
-	
+
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String saveTypeUser(@ModelAttribute("typeuser") TypeUser typeuser,
+	public String saveBook(@ModelAttribute("book") TypeUser tu,
 			BindingResult result) {
-		typeuserService.saveTypeUser(typeuser);
+
+		typeuserService.saveTypeUser(tu);;
+
 		/*
 		 * Note that there is no slash "/" right after "redirect:" So, it
 		 * redirects to the path relative to the current path
 		 */
-		return "redirect:views/listTypeUsers";
+		return "redirect:listatipousuario";
 	}
-	
-	@RequestMapping("/delete/{typeuserId}")
-	public String deleteTypeUser(@PathVariable("typeuserId") String id) {
+
+	@RequestMapping("/delete/{Id}")
+	public String deleteBook(@PathVariable("Id") String id) {
+
 		typeuserService.deleteTypeUser(id);
+
 		/*
 		 * redirects to the path relative to the current path
 		 */
-		// return "redirect:../listTypeUsers";
+		// return "redirect:../listBooks";
 
 		/*
 		 * Note that there is the slash "/" right after "redirect:" So, it
 		 * redirects to the path relative to the project root path
 		 */
-		return "redirect:/views/typeuser/listTypeUsers";
+		return "redirect:/tipousuario/ltipou";
 	}
 }	
