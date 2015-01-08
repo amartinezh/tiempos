@@ -19,9 +19,7 @@ public class JPAFlashDao implements FlashDao{
 
 	public void setEm(EntityManager em) {
 		this.em = em;
-	}
-	
-	
+	}	
 
 	/*
 	@Transactional(readOnly = true)

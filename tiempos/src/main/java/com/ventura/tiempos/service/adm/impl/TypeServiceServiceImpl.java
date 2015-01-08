@@ -21,10 +21,7 @@ public class TypeServiceServiceImpl implements TypeUserService{
 		typeuserdao.saveTypeUser(typeuser);
 	}
 
-	@Transactional(readOnly = true)
-	public List<TypeUser> listTypeUser() {
-		return typeuserdao.listTypeUser();
-	}
+	/*
 
 	@Transactional(readOnly = true)
 	public TypeUser getTypeUser(String id) {
@@ -36,4 +33,11 @@ public class TypeServiceServiceImpl implements TypeUserService{
 		typeuserdao.deleteTypeUser(id);
 
 	}
+	*/
+	
+	@Transactional(readOnly = true)
+	public List<TypeUser> listTypeUser() {
+		return typeuserdao.listTypeUser();
+	}
+	
 }

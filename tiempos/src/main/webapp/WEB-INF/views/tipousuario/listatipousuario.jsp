@@ -2,16 +2,13 @@
 
 <html>
 <head>
-<title>List Of Books</title>
+<title>Lista Tipo de Usuarios</title>
 
-<link rel="stylesheet"
-	href='<c:url value="/web-resources/css/pure-0.4.2.css"/>'>
+<link rel="stylesheet" href="<c:url value="/resources/css/pure-0.4.2.css"/>" >
 
-<link rel="stylesheet"
-	href='<c:url value="/web-resources/css/font-awesome-4.0.3/css/font-awesome.css"/>'>
+<link rel="stylesheet" href="<c:url value="/resources/css/font-awesome-4.0.3/css/font-awesome.css"/>" >
 
-<link rel="stylesheet"
-	href='<c:url value="/web-resources/css/jquery-ui-1.10.4.custom.css"/>'>
+<link rel="stylesheet" href="<c:url value="/resources/css/jquery-ui-1.10.4.custom.css"/>" >
 
 <style type="text/css">
 th {
@@ -29,32 +26,28 @@ th {
 			<%@ include file="tuForm.jsp"%>
 		</div>
 
-		<h1>List Of Books</h1>
-
-		<button class="pure-button pure-button-primary" onclick="addBook()">
-			<i class="fa fa-plus"></i> Add Book
+		<h1>LISTA DE TIPOS DE USUARIOS</h1>
+	
+		<button class="pure-button pure-button-primary" onclick="addTipoUsuario()">
+			<i class="fa fa-plus"></i> Agregar Tipo Usuario
 		</button>
+		 
 		<br>
 		<table class="pure-table pure-table-bordered pure-table-striped">
 			<thead>
 				<tr>
-					<th width="4%">S.N</th>
-					<th width="12%">Name</th>
-					<th width="12%">Code</th>
-					<th width="12%">Price</th>
-					<th width="12%">Authors</th>
-					<th width="12%">ISBN</th>
-					<th width="12%">Publisher</th>
-					<th width="12%">Published On</th>
-					<th width="12%"></th>
+					<th width="4%">ID</th>
+					<th width="12%">Descipción</th>										
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${bookList}" var="book" varStatus="loopCounter">
+				<c:forEach items="${typeuserList}" var="typeUserr" varStatus="loopCounter">
 					<tr>
-						<td><c:out value="${loopCounter.count}" /></td>
-						<td><c:out value="${book.name}" /></td>
-						<td><c:out value="${book.code}" /></td>
+						<!-- <td><c:out value="${loopCounter.count}" /></td>  -->
+						<td><c:out value="${typeUserr.id}" /></td>
+						<td><c:out value="${typeUserr.descripcion}" /></td>
+
+						<!-- <td><c:out value="${book.code}" /></td>
 						<td><c:out value="${book.price}" /></td>
 						<td><c:out value="${book.authors}" /></td>
 						<td><c:out value="${book.isbn}" /></td>
@@ -74,6 +67,7 @@ th {
 								</a>
 
 							</nobr></td>
+							 -->
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -82,13 +76,10 @@ th {
 	</div>
 
 	<!--  It is advised to put the <script> tags at the end of the document body so they don't block rendering of the page -->
-	<script type="text/javascript"
-		src='<c:url value="/web-resources/js/lib/jquery-1.10.2.js"/>'></script>
-	<script type="text/javascript"
-		src='<c:url value="/web-resources/js/lib/jquery-ui-1.10.4.custom.js"/>'></script>
-	<script type="text/javascript"
-		src='<c:url value="/web-resources/js/lib/jquery.ui.datepicker.js"/>'></script>
-	<script type="text/javascript"
-		src='<c:url value="/web-resources/js/js-for-listBooks.js"/>'></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/lib/jquery-1.10.2.js"/>" ></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/lib/jquery-ui-1.10.4.custom.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/lib/jquery.ui.datepicker.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/lib/js-listTipoUsuario.js"/>"></script>
+		 
 </body>
 </html>

@@ -5,20 +5,20 @@ import com.ventura.tiempos.domain.adm.TypeUser;
 
 public interface TypeUserDao {
 	
-	/*
-	 * CREATE and UPDATE
-	 */
+	public List<TypeUser> listTypeUser();
+	 
 	public void saveTypeUser(TypeUser typeuser);
 	
 	/*
 	 * READ
-	 */
+	 
 	public List<TypeUser> listTypeUser();
 	public TypeUser getTypeUser(String k);
     
     
 	/*
 	 * DELETE
-	 */
+	 
 	public void deleteTypeUser(String k);
+	*/
 }

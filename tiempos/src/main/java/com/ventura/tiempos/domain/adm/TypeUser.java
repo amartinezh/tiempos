@@ -7,44 +7,56 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
-@Table(name="type_users", schema="adm")
+@Table(name="tipo_usuarios", schema="adm")
 public class TypeUser implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @NotEmpty 
-    @Email (message = "Por favor el id de tipo de usuario")
-    private String id;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="adm.tipo_usuarios_id_seq")
+	@SequenceGenerator(name="adm.tipo_usuarios_id_seq", sequenceName="adm.tipo_usuarios_id_seq", allocationSize=1)
+    private int id;
 	
-	@NotEmpty(message = "Por favor ingrese la descripcion")
-	private String description;
+	@NotEmpty(message = "Por favor ingrese la descripción")
+	@Column(name = "descripcion")	
+	private String descripcion;
 	
-	public String getId() {
+	public TypeUser() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public TypeUser(int id, String descripcion) {
+		this.id = id;
+		this.descripcion = descripcion;
+	}
+	
+	public int getId() {
 		return id;
 	}
 	
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	
-	public String getDescription() {
-		return description;
+	public String getDescripcion() {
+		return descripcion;
 	}
 	
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 	
 	public String toString() {
-        return "Descripción: " + description + ";";
+        return "Descripción: " + descripcion + ";";
     }
+	
 }
