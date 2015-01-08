@@ -40,36 +40,24 @@ public class TypeUserDaoImpl implements TypeUserDao{
 	
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void saveTypeUser(TypeUser typeuser) {
-		em.persist(typeuser);
-	}
-    
-	/*
-    @SuppressWarnings("unchecked")
-	public List<TypeUser> listTypeUser() {
-		return getSession().createCriteria(TypeUser.class).list();
-	}
-    
-    public TypeUser getTypeUser(String id) {
-		return (TypeUser) getSession().get(TypeUser.class, id);
-	}
-
-	public void deleteTypeUser(String id) {
-		TypeUser typeuser = getTypeUser(id);
-		if (null != typeuser) {
-			getSession().delete(typeuser);
+		if(typeuser.getId() == 0) {
+			em.persist(typeuser);
+		} else {
+			em.merge(typeuser);
 		}
 	}
-    
-    private Session getSession() {
-		Session sess = getSessionFactory().getCurrentSession();
-		if (sess == null) {
-			sess = getSessionFactory().openSession();
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	public void deleteTypeUser(int id) {
+		TypeUser typeuserResul = em.find(TypeUser.class, id);
+		if (typeuserResul != null) {
+			em.remove(typeuserResul);
 		}
-		return sess;
 	}
-
-	private SessionFactory getSessionFactory() {
-		return sessionFactory;
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	public TypeUser getTypeUser(int id) {
+		return (TypeUser) em.find(TypeUser.class, id);
 	}
-	*/
+    
 }

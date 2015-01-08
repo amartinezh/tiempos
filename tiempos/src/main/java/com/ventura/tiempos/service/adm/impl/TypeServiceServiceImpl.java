@@ -21,19 +21,15 @@ public class TypeServiceServiceImpl implements TypeUserService{
 		typeuserdao.saveTypeUser(typeuser);
 	}
 
-	/*
+	@Transactional
+	public void deleteTypeUser(int id) {
+		typeuserdao.deleteTypeUser(id);
+	}
 
 	@Transactional(readOnly = true)
-	public TypeUser getTypeUser(String id) {
+	public TypeUser getTypeUser(int id) {
 		return typeuserdao.getTypeUser(id);
 	}
-
-	@Transactional
-	public void deleteTypeUser(String id) {
-		typeuserdao.deleteTypeUser(id);
-
-	}
-	*/
 	
 	@Transactional(readOnly = true)
 	public List<TypeUser> listTypeUser() {

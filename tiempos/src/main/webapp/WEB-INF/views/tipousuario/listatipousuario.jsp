@@ -53,21 +53,19 @@ th {
 						<td><c:out value="${book.isbn}" /></td>
 						<td><c:out value="${book.publisher}" /></td>
 						<td><c:out value="${book.publishedOn}" /></td>
-
+-->
 						<td><nobr>
 								<button class="pure-button pure-button-primary"
-									onclick="editBook(${book.id});">
-
-									<i class="fa fa-pencil"></i> Edit
+									onclick="editTypeUser(${typeUserr.id});">
+									<i class="fa fa-pencil"></i> Editar
 								</button>
-
 								<a class="pure-button pure-button-primary"
-									onclick="return confirm('Are you sure you want to delete this book?');"
-									href="delete/${book.id}"> <i class="fa fa-times"></i>Delete
+									onclick="return confirm('¿Desea continuar con eliminar este tipo de usuario?');"
+									href="tipousuario/delete/${typeUserr.id}"> <i class="fa fa-times"></i> Borrar
 								</a>
 
 							</nobr></td>
-							 -->
+							 
 					</tr>
 				</c:forEach>
 			</tbody>

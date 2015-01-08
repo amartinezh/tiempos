@@ -6,19 +6,8 @@ import com.ventura.tiempos.domain.adm.TypeUser;
 public interface TypeUserDao {
 	
 	public List<TypeUser> listTypeUser();
-	 
 	public void saveTypeUser(TypeUser typeuser);
+	public void deleteTypeUser(int id);
+	public TypeUser getTypeUser(int id);
 	
-	/*
-	 * READ
-	 
-	public List<TypeUser> listTypeUser();
-	public TypeUser getTypeUser(String k);
-    
-    
-	/*
-	 * DELETE
-	 
-	public void deleteTypeUser(String k);
-	*/
 }

@@ -7,6 +7,7 @@ public interface TypeUserService {
 	
 	public void saveTypeUser(TypeUser typeuser);
 	public List<TypeUser> listTypeUser();
-	/*public TypeUser getTypeUser(String id);
-	public void deleteTypeUser(String id);*/
+	public TypeUser getTypeUser(int id);
+	public void deleteTypeUser(int id);
+	
 }

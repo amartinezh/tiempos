@@ -7,9 +7,9 @@ function addTipoUsuario() {
 	$('#bookDialog').dialog('open');
 }
 
-function editBook(id) {
+function editTypeUser(id) {
 
-	$.get("get/" + id, function(result) {
+	$.get("tipousuario/get/" + id, function(result) {
 
 		$("#bookDialog").html(result);
 
