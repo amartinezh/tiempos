@@ -91,7 +91,7 @@
 
 				<!-- logout button -->
 				<div id="logout" class="btn-header transparent pull-right">
-					<span> <a href="#" title="Sign Out" data-action="userLogout" data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i class="fa fa-sign-out"></i></a> </span>
+					<span> <a href="salir" title="Sign Out" data-action="userLogout" data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i class="fa fa-sign-out"></i></a> </span>
 				</div>
 				<!-- end logout button -->
 				
@@ -100,9 +100,6 @@
 
 		</header>
 		<!-- END HEADER -->
-
-		<!-- MAIN PANEL -->
-		
 
 			<!-- MAIN CONTENT -->
 			<div id="content">
@@ -128,6 +125,7 @@
 										<table id="dt_basic" class="table table-striped table-bordered" width="100%">
 											<thead>			                
 												<tr>
+													<th data-hide="phone">Zona</th>
 													<th data-hide="phone">Distrito</th>
 													<th data-hide="phone">Valor Facturado</th>
 													<th data-hide="phone">Presup.</th>
@@ -136,7 +134,8 @@
 													<th data-hide="phone">Vrl</th>
 													<th data-hide="phone">BackLog</th>
 													<th data-hide="phone">Pedidas Mes</th>
-													<th data-hide="phone">Venta Día</th>
+													<th data-hide="phone">Venta Día</th>													
+													<th data-hide="phone">Pedidas Día</th>													
 											<!-- 	<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> Valor Facturado</th>
 													<th data-hide="phone"><i class="fa fa-fw fa-phone text-muted hidden-md hidden-sm hidden-xs"></i> Phone</th>
 													<th>Company</th>
@@ -161,7 +160,10 @@
 												<c:forEach items="${flash1ist}" var="Flashh" varStatus="loopCounter">														
 													<tr>
 														<td>
-															<c:out value="${Flashh.codzbp}" />															
+															<c:out value="${Flashh.codesz}" />															
+														</td>
+														<td>
+															<c:out value="${Flashh.codzbp}" />														
 														</td>
 														<td>
 															<c:out value="${Flashh.clnet}" />															
@@ -189,13 +191,11 @@
 														</td>
 														<td>
 															<c:out value="${Flashh.ckqty}" />															
-														</td>
+														</td>														
 													</tr>
-											  	</c:forEach>
-												 
+											  	</c:forEach>												 
 											</tbody>
 										</table>
-
 									</div>
 									<!-- end widget content -->
 				
@@ -219,9 +219,6 @@
 
 			</div>
 			<!-- END MAIN CONTENT -->
-
-		
-		<!-- END MAIN PANEL -->
 
 		<!-- PAGE FOOTER -->
 		<div class="page-footer">

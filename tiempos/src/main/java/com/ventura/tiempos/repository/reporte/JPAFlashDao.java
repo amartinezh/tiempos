@@ -1,8 +1,11 @@
 package com.ventura.tiempos.repository.reporte;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -33,8 +36,15 @@ public class JPAFlashDao implements FlashDao{
 		List<Object[]> resultados = em.createQuery("SELECT f.cozon as cozon, f.codzbp as codzbp, SUM(f.ckqty) As ckqty, SUM(f.cpqty) as cpqty, SUM(f.clord) as clord, sum(f.cldev) as cldev, SUM(f.clnet) As clnet, SUM(f.cpdte) as cpdte, SUM(f.clqty) as clqty, SUM(f.clqtyb) as clqtyb, SUM(f.clnetb) as clnetb, SUM(f.clnetc) as clnetc, f.codesz as codesz FROM Flash as f WHERE f.mes = 11 And f.ano = 2014 And f.cocia = 1 And f.cocurr = 'COP' GROUP BY f.cozon, f.codesz, f.codzbp ORDER BY f.codesz").getResultList();
 		// List<Flash> resultados = em.createQuery("select f from Flash f order by f.codzbp").getResultList();
 		List<Flash> resultadoss = new LinkedList<Flash>();
-		for(Object[] rest: resultados) {			
-			resultadoss.add(new Flash((String)rest[0], (String)rest[1], (BigDecimal)rest[2], (BigDecimal)rest[3], (BigDecimal)rest[4], (BigDecimal)rest[5], (BigDecimal)rest[6], (BigDecimal)rest[7], (BigDecimal)rest[8], (BigDecimal)rest[9], (BigDecimal)rest[10], (BigDecimal)rest[11], (String)rest[12]));
+		String z = "";
+		for(Object[] rest: resultados) {
+			if(resultadoss.size() > 0 && !resultadoss.get(resultadoss.size()-1).getCodesz().equalsIgnoreCase(rest[12].toString())) {
+				resultadoss.add(new Flash("000", resultadoss.get(resultadoss.size()-1).getCodesz(), (BigDecimal)rest[2], (BigDecimal)rest[3], (BigDecimal)rest[4], (BigDecimal)rest[5], new BigDecimal(rest[6].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), (BigDecimal)rest[7], (BigDecimal)rest[8], (BigDecimal)rest[9], (BigDecimal)rest[10], (BigDecimal)rest[11], resultadoss.get(resultadoss.size()-1).getCodesz()));
+			}		
+			resultadoss.add(new Flash((String)rest[0], (String)rest[1], (BigDecimal)rest[2], (BigDecimal)rest[3], (BigDecimal)rest[4], (BigDecimal)rest[5], new BigDecimal(rest[6].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), (BigDecimal)rest[7], (BigDecimal)rest[8], (BigDecimal)rest[9], (BigDecimal)rest[10], (BigDecimal)rest[11], (String)rest[12]));
+		}
+		if(resultadoss.size()> 0) {
+			resultadoss.add(new Flash("000", resultadoss.get(resultadoss.size()-1).getCodesz(), resultadoss.get(resultadoss.size()-1).getCkqty(), resultadoss.get(resultadoss.size()-1).getCkqty(), resultadoss.get(resultadoss.size()-1).getCkqty(), resultadoss.get(resultadoss.size()-1).getCkqty(), resultadoss.get(resultadoss.size()-1).getCkqty(), resultadoss.get(resultadoss.size()-1).getCkqty(), resultadoss.get(resultadoss.size()-1).getCkqty(), resultadoss.get(resultadoss.size()-1).getCkqty(), resultadoss.get(resultadoss.size()-1).getCkqty(), resultadoss.get(resultadoss.size()-1).getCkqty(), resultadoss.get(resultadoss.size()-1).getCodesz()));
 		}
 		return resultadoss;
 		

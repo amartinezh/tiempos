@@ -33,22 +33,12 @@ public class FlashController {
 		List<Flash> l = new LinkedList<Flash>();
 		model.put("flash", new Flash());
 		model.put("flash1ist", flashManagerService.getFlashList());
-		/*
-		List<Flash> la = flashManagerService.getFlashList();
-		int j = 0; 
-		for (Object flash : la) {
-		//	JOptionPane.showMessageDialog(null, ((String)(flash.getCozon())));
-		//	JOptionPane.showMessageDialog(null, ((Flash)(flash)).getCozon());
-			j++;
-		}
-		model.put("jj", j);
-		*/
 		return "dashboard";
 	}
 	
-	@RequestMapping(value = "/cerrarSesion", method = RequestMethod.GET)
+	@RequestMapping(value = "/salir", method = RequestMethod.GET)
 	public String salir(Map<String, Object> model) {
-		return "key/index";
+		return "redirect:/index/ingreso";
 	}
 
 }
