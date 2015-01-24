@@ -1,27 +1,26 @@
 package com.ventura.tiempos.web.login;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.ventura.tiempos.domain.login.User;
-import com.ventura.tiempos.domain.reporte.Flash;
 import com.ventura.tiempos.service.login.UserManager;
-import com.ventura.tiempos.service.reporte.FlashManagerService;
-import com.ventura.tiempos.service.reporte.impl.SimpleFlashManagerService;
 
 @Controller
 @RequestMapping(value="/index")
+@SessionAttributes({"user_inicio"})
 public class IndexController {
 
 	/** Logger for this class and subclasses */
@@ -37,16 +36,15 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value = "/validar", method = RequestMethod.POST)
-	public String addEmployee(@Valid @ModelAttribute("user") User user, BindingResult result, Map<String, Object> model) {
+	public String addEmployee(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
 	  if (result.hasErrors()) {
 		  return "key/index";
 	  } else {
-		  model.put("id", user.getId());
-	//	  model.put("pass", user.getPass());
 		  if (userManager.val(user.getId(), user.getPass())) {
-			  return "key/entrar";
+			  model.addAttribute("user_inicio", user);
+			  return "redirect:/flash/info";
 		  } else {
-			  model.put("msg", "<script type=\"text/javascript\">$( window ).load(function() { adv(); }); </script>");
+			  model.addAttribute("msg", "<script type=\"text/javascript\">$( window ).load(function() { adv(); }); </script>");
 			  return "key/index";
 		  }
 	  }

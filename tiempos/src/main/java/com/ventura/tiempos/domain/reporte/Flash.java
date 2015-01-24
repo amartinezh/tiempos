@@ -479,6 +479,18 @@ public class Flash implements Serializable{
 		this.codesz = codesz;
 	}
 	
+	public Flash(String cozon, String codzbp, BigDecimal ckqty, BigDecimal cpqty, BigDecimal clord, BigDecimal cldev, BigDecimal clnet, BigDecimal cpdte, BigDecimal clqty) {
+		this.cozon = cozon;
+		this.codzbp = codzbp;
+		this.ckqty = ckqty;
+		this.cpqty = cpqty;
+		this.clord = clord;
+		this.cldev = cldev;
+		this.clnet = clnet;
+		this.cpdte = cpdte;
+		this.clqty = clqty;
+	}
+	
 	public String toString() {
         return "Descripción: " + ano + ";";
     }

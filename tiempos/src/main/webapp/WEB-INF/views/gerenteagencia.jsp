@@ -124,14 +124,11 @@
 				
 										<table id="dt_basic" class="table table-striped table-bordered" width="100%">
 											<thead>			                
-												<tr>
-													<th data-hide="phone">Zona</th>
+												<tr>													
 													<th data-hide="phone">Distrito</th>
 													<th data-hide="phone">Valor Facturado</th>
 													<th data-hide="phone">Presup.</th>
 													<th data-hide="phone">Total</th>
-													<th data-hide="phone">Qty</th>
-													<th data-hide="phone">Vrl</th>
 													<th data-hide="phone">BackLog</th>
 													<th data-hide="phone">Pedidas Mes</th>
 													<th data-hide="phone">Venta Día</th>													
@@ -160,9 +157,6 @@
 												<c:forEach items="${flash1ist}" var="Flashh" varStatus="loopCounter">														
 													<tr>
 														<td>
-															<c:out value="${Flashh.codesz}" />															
-														</td>
-														<td>
 															<c:out value="${Flashh.codzbp}" />														
 														</td>
 														<td>
@@ -173,12 +167,6 @@
 														</td>
 														<td>
 															<c:out value="${Flashh.clqty}" />															
-														</td>
-														<td>
-															<c:out value="${Flashh.clqtyb}" />
-														</td>
-														<td>
-															<c:out value="${Flashh.clnetb}" />
 														</td>
 														<td>
 															<c:out value="${Flashh.cpdte}" />

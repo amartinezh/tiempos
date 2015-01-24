@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ventura.tiempos.service.reporte.FlashManagerService;
+import com.ventura.tiempos.service.reporte.VendedorService;
 import com.ventura.tiempos.domain.reporte.Flash;
 
 @Controller
@@ -20,6 +21,9 @@ public class VendedorController {
 	
 	/** Logger for this class and subclasses */
 	protected final Log logger = LogFactory.getLog(getClass());
+	
+	@Autowired
+	private VendedorService vendedorService;
 	
 	@RequestMapping(value = "/inicio", method = RequestMethod.GET)
 	public String lanzar(Map<String, Object> model) {

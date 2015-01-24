@@ -89,6 +89,7 @@
 					</li>
 				</ul>
 
+				<select><option>a</option></select>
 				<!-- logout button -->
 				<div id="logout" class="btn-header transparent pull-right">
 					<span> <a href="salir" title="Sign Out" data-action="userLogout" data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i class="fa fa-sign-out"></i></a> </span>
@@ -109,7 +110,7 @@
 				
 					<!-- row -->
 					<div class="row">
-				
+				        
 						<!-- NEW WIDGET START -->
 						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				
@@ -166,7 +167,7 @@
 															<c:out value="${Flashh.codzbp}" />														
 														</td>
 														<td>
-															<c:out value="${Flashh.clnet}" />															
+															<fmt:formatNumber type="currency" value="${Flashh.clnet}"/>																														
 														</td>
 														<td>
 															<c:out value="${Flashh.cpqty}" />															
