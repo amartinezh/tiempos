@@ -6,6 +6,7 @@ import java.text.NumberFormat;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -30,10 +31,10 @@ public class JPAFlashDao implements FlashDao{
 	*/	
 	
 	@SuppressWarnings("unchecked")
-	public List<Flash> getFlashList() {	
+	public List<Flash> getFlashList(List<Map<String, String>> permisos) {	
 	
 		//List<Flash> resultados = em.createQuery("SELECT f.cozon, f.codzbp, Sum(f.ckqty), sum(f.cpqty), sum(f.clord), sum(f.cldev), Sum(f.clnet), sum(f.cpdte), sum(f.clqty), sum(f.clqtyb), sum(f.clnetb), sum(f.clnetc), f.codesz FROM Flash as f WHERE f.mes = 11 And f.ano = 2014 And f.cocia = 1 And f.cocurr = 'COP' GROUP BY f.cozon, f.codesz, f.codzbp ORDER BY f.codesz").getResultList();
-		List<Object[]> resultados = em.createQuery("SELECT f.cozon as cozon, f.codzbp as codzbp, SUM(f.ckqty) As ckqty, SUM(f.cpqty) as cpqty, SUM(f.clord) as clord, sum(f.cldev) as cldev, SUM(f.clnet) As clnet, SUM(f.cpdte) as cpdte, SUM(f.clqty) as clqty, SUM(f.clqtyb) as clqtyb, SUM(f.clnetb) as clnetb, SUM(f.clnetc) as clnetc, f.codesz as codesz FROM Flash as f WHERE f.mes = 11 And f.ano = 2014 And f.cocia = 1 And f.cocurr = 'COP' GROUP BY f.cozon, f.codesz, f.codzbp ORDER BY f.codesz").getResultList();
+		List<Object[]> resultados = em.createQuery("SELECT f.cozon as cozon, f.codzbp as codzbp, SUM(f.ckqty) As ckqty, SUM(f.cpqty) as cpqty, SUM(f.clord) as clord, sum(f.cldev) as cldev, SUM(f.clnet) As clnet, SUM(f.cpdte) as cpdte, SUM(f.clqty) as clqty, SUM(f.clqtyb) as clqtyb, SUM(f.clnetb) as clnetb, SUM(f.clnetc) as clnetc, f.codesz as codesz FROM Flash as f WHERE f.mes = 11 And f.ano = 2014 And "+ permisos.get(1).get("pan") +" And "+permisos.get(0).get("nal")+" GROUP BY f.cozon, f.codesz, f.codzbp ORDER BY f.codesz").getResultList();
 		// List<Flash> resultados = em.createQuery("select f from Flash f order by f.codzbp").getResultList();
 		List<Flash> resultadoss = new LinkedList<Flash>();
 		String z = "";

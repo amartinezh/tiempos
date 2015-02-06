@@ -10,6 +10,6 @@ public interface UserDao {
 
     public void saveUser(User user);
     
-    public boolean val(String k, String p);
+    public User val(String k, String p);
 
 }

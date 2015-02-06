@@ -12,66 +12,61 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ventura.tiempos.domain.login.User;
 
 @Entity
-@Table(name="tipo_usuarios", schema="adm")
-public class TypeUser implements Serializable {
-
+@Table(name="level", schema="adm")
+public class Level implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-    @Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="adm.tipo_usuarios_id_seq")
-	@SequenceGenerator(name="adm.tipo_usuarios_id_seq", sequenceName="adm.tipo_usuarios_id_seq", allocationSize=1)
+    @Column(name = "level_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="adm.level_level_id_seq")
+	@SequenceGenerator(name="adm.level_level_id_seq", sequenceName="adm.level_level_id_seq", allocationSize=1)
     private int id;
 	
 	@NotEmpty(message = "Por favor ingrese la descripción")
-	@Column(name = "descripcion")	
+	@Column(name = "level_desc")
 	private String descripcion;
 	
-	@OneToMany(mappedBy="tip_usuario")
+	@OneToMany(mappedBy="level")
 	private Set<User> users;
 	
-	public TypeUser() {
+	public Level() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Set<User> getUsers() {
-		return users;
+
+	@Override
+	public String toString() {
+		return "Level [id=" + id + ", descripcion=" + descripcion
+				+ ", toString()=" + super.toString() + "]";
 	}
-	
-	public void setUsers(Set<User> users) {
-		this.users = users;
-	}
-	
-	public TypeUser(int id, String descripcion) {
-		this.id = id;
-		this.descripcion = descripcion;
-	}
-	
+
 	public int getId() {
 		return id;
 	}
-	
-	public void setId(int id) {
-		this.id = id;
-	}
-	
+
 	public String getDescripcion() {
 		return descripcion;
 	}
-	
+
+	public Set<User> getUsers() {
+		return users;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	
-	public String toString() {
-        return "Descripción: " + descripcion + ";";
-    }
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
 	
 }

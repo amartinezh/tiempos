@@ -8,6 +8,6 @@ import com.ventura.tiempos.domain.login.User;
 public interface UserManager extends Serializable {
 
     public List<User> getUsers();
-    public boolean val(String k, String p);
+    public User val(String k, String p);
 
 }

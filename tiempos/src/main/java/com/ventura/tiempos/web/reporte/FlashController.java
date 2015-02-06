@@ -23,6 +23,7 @@ import org.springframework.web.method.annotation.ModelMethodProcessor;
 
 import com.ventura.tiempos.service.reporte.FlashManagerService;
 import com.ventura.tiempos.domain.reporte.Flash;
+import com.ventura.tiempos.domain.session.session;
 
 
 @Controller
@@ -39,9 +40,10 @@ public class FlashController {
 	@RequestMapping(value = "/info", method = RequestMethod.GET)
 	public String lanzar(Model model) {
 		if(model.containsAttribute("user_inicio") == true) {
+			session ses = (session)(model.asMap().get("user_inicio"));
 			List<Flash> l = new LinkedList<Flash>();
 			model.addAttribute("flash", new Flash());
-			model.addAttribute("flash1ist", flashManagerService.getFlashList());			
+			model.addAttribute("flash1ist", flashManagerService.getFlashList(ses.getPermisos()));			
 			return "dashboard";		
 		} else {
 			return "redirect:/index/ingreso";
