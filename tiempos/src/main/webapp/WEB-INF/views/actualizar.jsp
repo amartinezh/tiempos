@@ -92,7 +92,7 @@
 					<span> <a href="salir" title="Sign Out" data-action="userLogout" data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i class="fa fa-sign-out"></i></a> </span>
 				</div>
 				<div id="actualizar" class="btn-header transparent pull-right">										
-					<span> <a href="actualizar" title="Actualizar">Actualizar</a> </span>
+					<span> <a href="${redireccion}" title="Actualizar">Regresar</a> </span>
 				</div>
 				<!-- end logout button -->
 				
@@ -124,63 +124,36 @@
 								
 									<!-- widget content -->
 									<div class="widget-body no-padding">
-				
-										<table id="dt_basic" class="table table-striped table-bordered" width="100%">
-											<thead>			                
-												<tr>
-													<th data-hide="phone">Zona</th>
-													<th data-hide="phone">Distrito</th>
-													<th data-hide="phone">Valor Facturado</th>
-													<th data-hide="phone">Presup.</th>
-													<th data-hide="phone">Total</th>
-													<th data-hide="phone">Qty</th>
-													<th data-hide="phone">Vrl</th>
-													<th data-hide="phone">BackLog</th>
-													<th data-hide="phone">Pedidas Mes</th>
-													<th data-hide="phone">Venta Día</th>													
-													<th data-hide="phone">Pedidas Día</th>													
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach items="${flash1ist}" var="Flashh" varStatus="loopCounter">														
-													<tr>
-														<td>
-															<c:out value="${Flashh.codesz}" />															
-														</td>
-														<td>
-															<c:out value="${Flashh.codzbp}" />														
-														</td>
-														<td>
-															<fmt:formatNumber type="currency" value="${Flashh.clnet}"/>																														
-														</td>
-														<td>
-															<c:out value="${Flashh.cpqty}" />															
-														</td>
-														<td>
-															<c:out value="${Flashh.clqty}" />															
-														</td>
-														<td>
-															<c:out value="${Flashh.clqtyb}" />
-														</td>
-														<td>
-															<c:out value="${Flashh.clnetb}" />
-														</td>
-														<td>
-															<c:out value="${Flashh.cpdte}" />
-														</td>
-														<td>
-															<c:out value="${Flashh.clord}" />
-														</td>
-														<td>
-															<c:out value="${Flashh.cldev}" />
-														</td>
-														<td>
-															<c:out value="${Flashh.ckqty}" />															
-														</td>														
-													</tr>
-											  	</c:forEach>												 
-											</tbody>
-										</table>
+	
+										<form:form id="checkout-form" class="smart-form" novalidate="novalidate" method="POST" action="generar" ModelAttribute="flash" commandName="flash">
+
+											<fieldset>
+												<div class="row">
+													<section class="col col-6">
+														<label class="label">Mes</label>
+														<form:select path="mes" items="${meses}" />														
+													</section>
+											 		<section class="col col-6">
+														<label class="label">Año</label>
+														<form:select path="ano" items="${anos}" />														
+													</section>												
+													<section class="col col-6">
+														<label class="label">Compañia</label>
+														<form:select path="cocia" items="${comps}" />														
+													</section>
+													<section class="col col-6">
+														<label class="label">Tipo</label>
+														<form:select path="cocurr" items="${nivs}" />														
+													</section>
+												</div>
+											</fieldset>
+											<footer>
+												<button type="submit" class="btn btn-primary">
+													Generar
+												</button>
+											</footer>
+										</form:form>			
+	
 									</div>
 									<!-- end widget content -->
 				
