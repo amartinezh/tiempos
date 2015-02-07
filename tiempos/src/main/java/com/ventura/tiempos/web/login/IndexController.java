@@ -53,7 +53,9 @@ public class IndexController {
 				  return "redirect:/flash/info";  
 			  } else if(uss.getTip_usuario().getDescripcion().equalsIgnoreCase("gerente agencia")) {
 				  return "redirect:/agencia/reporte";
-			  } else {
+			  } else if(uss.getTip_usuario().getDescripcion().equalsIgnoreCase("vendedor")) {
+				  return "redirect:/vendedor/inicio";
+			  }else {			  
 				  return "key/index";
 			  }			  
 		  } else {

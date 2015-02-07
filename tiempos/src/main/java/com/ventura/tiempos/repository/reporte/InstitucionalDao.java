@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.ventura.tiempos.domain.reporte.Flash;
 
-public interface VendedorDao {
+public interface InstitucionalDao {
 	
 	public List<Flash> getFlashList(List<Map<String, String>> permisos);
 

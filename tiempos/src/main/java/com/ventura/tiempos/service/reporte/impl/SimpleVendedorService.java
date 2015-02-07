@@ -1,6 +1,7 @@
 package com.ventura.tiempos.service.reporte.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +22,8 @@ public class SimpleVendedorService implements VendedorService {
 		this.vendedorDao = vendedorDao;
 	}
 	
-	public List<Flash> getFlashList() {
-		return vendedorDao.getFlashList();
+	public List<Flash> getFlashList(List<Map<String, String>> permisos) {
+		return vendedorDao.getFlashList(permisos);
 	}
 
 }
