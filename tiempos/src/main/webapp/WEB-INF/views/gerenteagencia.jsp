@@ -93,6 +93,9 @@
 				<div id="logout" class="btn-header transparent pull-right">
 					<span> <a href="salir" title="Sign Out" data-action="userLogout" data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i class="fa fa-sign-out"></i></a> </span>
 				</div>
+				<div id="actualizar" class="btn-header transparent pull-right">										
+					<span> <a href="refrescar" title="Actualizar">Actualizar</a> </span>
+				</div>
 				<!-- end logout button -->
 				
 			</div>
@@ -133,27 +136,9 @@
 													<th data-hide="phone">Pedidas Mes</th>
 													<th data-hide="phone">Venta Día</th>													
 													<th data-hide="phone">Pedidas Día</th>													
-											<!-- 	<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> Valor Facturado</th>
-													<th data-hide="phone"><i class="fa fa-fw fa-phone text-muted hidden-md hidden-sm hidden-xs"></i> Phone</th>
-													<th>Company</th>
-													<th data-hide="phone,tablet"><i class="fa fa-fw fa-map-marker txt-color-blue hidden-md hidden-sm hidden-xs"></i> Zip</th>
-													<th data-hide="phone,tablet">City</th>
-													<th data-hide="phone,tablet"><i class="fa fa-fw fa-calendar txt-color-blue hidden-md hidden-sm hidden-xs"></i> Date</th>
-													 -->	
 												</tr>
 											</thead>
-											<tbody>
-											<!--	<tr>
-													<td>1</td>
-											 <td>Jennifer</td>
-													<td>1-342-463-8341</td>
-													<td>Et Rutrum Non Associates</td>
-													<td>35728</td>
-													<td>Fogo</td>
-													<td>03/04/14</td>
-												
-												</tr>
-										-->		
+											<tbody>												
 												<c:forEach items="${flash1ist}" var="Flashh" varStatus="loopCounter">														
 													<tr>
 														<td>

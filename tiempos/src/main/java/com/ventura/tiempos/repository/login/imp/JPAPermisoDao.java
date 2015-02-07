@@ -144,6 +144,7 @@ public class JPAPermisoDao implements PermisoDao {
     	permisos.add(8, ver);
     	if(usuario.getTip_usuario().getDescripcion().equalsIgnoreCase("gerente agencia")) {
     		permisos.add(9, generarPermisos(usuario, "cozon", resultados));
+    		permisos.get(8).put("per", "permisos");
     	}    	
     	return permisos;
 	}    
@@ -154,9 +155,9 @@ public class JPAPermisoDao implements PermisoDao {
     	String per = "";
     	for(Object rest : resultados) {
     		if(per.isEmpty()) {
-    			rest = "f." + campo + " = " + rest;
+    			per = "f." + campo + " = '" + rest+"'";
     		} else {
-    			rest = " or f." + campo + " = " + rest;
+    			per = per + " or f." + campo + " = '" + rest+"'";
     		}
     	}
     	per = "(" + per + ")";

@@ -64,6 +64,7 @@ public class FlashController {
 	public String actualizar(Model model) {
 		if(model.containsAttribute("user_inicio") == true) {
 			model.addAttribute("redireccion", "info");
+			model.addAttribute("accion", "generar");
 			model.addAttribute("flash", new Flash());
 			session ses = (session)(model.asMap().get("user_inicio"));
 			model.addAttribute("comps", ses.getPermisos().get(0));

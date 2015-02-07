@@ -125,7 +125,7 @@
 									<!-- widget content -->
 									<div class="widget-body no-padding">
 	
-										<form:form id="checkout-form" class="smart-form" novalidate="novalidate" method="POST" action="generar" ModelAttribute="flash" commandName="flash">
+										<form:form id="checkout-form" class="smart-form" novalidate="novalidate" method="POST" action="${accion}" ModelAttribute="flash" commandName="flash">
 											<fieldset>
 												<div class="row">
 													<section class="col col-6">
