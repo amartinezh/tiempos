@@ -49,6 +49,11 @@ public class FlashController {
 			List<Flash> l = new LinkedList<Flash>();
 			model.addAttribute("flash", new Flash());
 			model.addAttribute("flash1ist", flashManagerService.getFlashList(ses.getPermisos()));			
+			if(((session)(model.asMap().get("user_inicio"))).getPermisos().get(8).get("nivel").equalsIgnoreCase("exp")) {
+				model.addAttribute("mostrar", 1);
+			} else {
+				model.addAttribute("mostrar", 0);
+			}
 			return "dashboard";		
 		} else {
 			return "redirect:/index/ingreso";
@@ -76,7 +81,7 @@ public class FlashController {
 		if(model.containsAttribute("user_inicio") == true) {
 			((session)(model.asMap().get("user_inicio"))).getPermisos().get(8).put("messel", flash.getMes()+"");
 			((session)(model.asMap().get("user_inicio"))).getPermisos().get(8).put("anosel", flash.getAno()+"");
-			((session)(model.asMap().get("user_inicio"))).getPermisos().get(8).put("comp", flash.getCocia()+"");
+			((session)(model.asMap().get("user_inicio"))).getPermisos().get(8).put("compa", flash.getCocia()+"");
 			((session)(model.asMap().get("user_inicio"))).getPermisos().get(8).put("nivel", flash.getCocurr()+"");
 			return "redirect:/flash/info";
 		}else {

@@ -128,7 +128,9 @@
 										<table id="dt_basic" class="table table-striped table-bordered" width="100%">
 											<thead>			                
 												<tr>
-													<th data-hide="phone">Zona</th>
+													<c:if test="${mostrar < 1}">
+														<th data-hide="phone">Zona</th>
+													</c:if>
 													<th data-hide="phone">Distrito</th>
 													<th data-hide="phone">Valor Facturado</th>
 													<th data-hide="phone">Presup.</th>
@@ -144,9 +146,11 @@
 											<tbody>
 												<c:forEach items="${flash1ist}" var="Flashh" varStatus="loopCounter">														
 													<tr>
-														<td>
-															<c:out value="${Flashh.codesz}" />															
-														</td>
+														<c:if test="${mostrar < 1}">
+															<td>
+																<c:out value="${Flashh.codesz}" />															
+															</td>
+														</c:if>
 														<td>
 															<c:out value="${Flashh.codzbp}" />														
 														</td>
