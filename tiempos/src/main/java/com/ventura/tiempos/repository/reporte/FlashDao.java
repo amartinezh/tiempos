@@ -8,5 +8,6 @@ import com.ventura.tiempos.domain.reporte.Flash;
 public interface FlashDao {
 
 	public List<Flash> getFlashList(List<Map<String, String>> permisos);
+	public List<Flash> getFlashListCanal(List<Map<String, String>> permisos);
 	
 }

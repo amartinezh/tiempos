@@ -26,6 +26,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.method.annotation.ModelMethodProcessor;
 
 import com.ventura.tiempos.service.reporte.FlashManagerService;
+import com.ventura.tiempos.domain.adm.TypeUser;
 import com.ventura.tiempos.domain.login.User;
 import com.ventura.tiempos.domain.reporte.Flash;
 import com.ventura.tiempos.domain.session.session;
@@ -46,7 +47,6 @@ public class FlashController {
 	public String lanzar(Model model) {
 		if(model.containsAttribute("user_inicio") == true) {
 			session ses = (session)(model.asMap().get("user_inicio"));
-			List<Flash> l = new LinkedList<Flash>();
 			model.addAttribute("flash", new Flash());
 			model.addAttribute("flash1ist", flashManagerService.getFlashList(ses.getPermisos()));			
 			if(((session)(model.asMap().get("user_inicio"))).getPermisos().get(8).get("nivel").equalsIgnoreCase("exp")) {
@@ -56,6 +56,33 @@ public class FlashController {
 			}
 			return "dashboard";		
 		} else {
+			return "redirect:/index/ingreso";
+		}
+	}
+	
+	@RequestMapping(value = "/canal", method = RequestMethod.GET)
+	public String lanzar1(Model model) {
+		if(model.containsAttribute("user_inicio") == true) {
+			session ses = (session)(model.asMap().get("user_inicio"));
+			//model.addAttribute("flash", new Flash());
+			model.addAttribute("flash1ist", flashManagerService.getFlashListCanal(ses.getPermisos()));			
+	//		if(((session)(model.asMap().get("user_inicio"))).getPermisos().get(8).get("nivel").equalsIgnoreCase("exp")) {
+		//		model.addAttribute("mostrar", 1);
+			//} else {
+				//model.addAttribute("mostrar", 0);
+			//}
+			return "reportes/canal";		
+		} else {
+			return "redirect:/index/ingreso";
+		}
+	}
+	
+	@RequestMapping("/c/{cozon}")
+	public String getTypeUser(@PathVariable int cozon, Model model) {
+		if(model.containsAttribute("user_inicio") == true) {			
+			((session)(model.asMap().get("user_inicio"))).getPermisos().get(7).put("canal", "f.cozon = '"+cozon+"'");			
+			return "redirect:/flash/canal";
+		}else {
 			return "redirect:/index/ingreso";
 		}
 	}

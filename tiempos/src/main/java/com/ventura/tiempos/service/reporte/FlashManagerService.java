@@ -9,5 +9,6 @@ import com.ventura.tiempos.domain.reporte.Flash;
 public interface FlashManagerService extends Serializable {
 
 	public List<Flash> getFlashList(List<Map<String, String>> permisos);
+	public List<Flash> getFlashListCanal(List<Map<String, String>> permisos);
 	
 }

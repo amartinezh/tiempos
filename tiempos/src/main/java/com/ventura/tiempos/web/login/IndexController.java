@@ -47,17 +47,20 @@ public class IndexController {
 	  } else {
 		  User uss = userManager.val(user.getId(), user.getPass());
 		  if (uss != null) {
-			  session ses = new session(uss.getId(), permisoManager.getPermisos(uss), uss.getTip_usuario().getDescripcion(), uss.getLevel().getDescripcion(), uss.getComp().getDescripcion());
-			  model.addAttribute("user_inicio", ses);
+			  String ret = "";
+			  session ses = null;
 			  if(uss.getTip_usuario().getDescripcion().equalsIgnoreCase("gerente general")) {
-				  return "redirect:/flash/info";  
+				  ses = new session(uss.getId(), permisoManager.getPermisos(uss), uss.getTip_usuario().getDescripcion(), uss.getLevel().getDescripcion(), uss.getComp().getDescripcion());				  
+				  ret = "redirect:/flash/info";  
 			  } else if(uss.getTip_usuario().getDescripcion().equalsIgnoreCase("gerente agencia")) {
-				  return "redirect:/agencia/reporte";
+				  ret = "redirect:/agencia/reporte";
 			  } else if(uss.getTip_usuario().getDescripcion().equalsIgnoreCase("vendedor")) {
-				  return "redirect:/vendedor/inicio";
+				  ret = "redirect:/vendedor/inicio";
 			  }else {			  
 				  return "key/index";
-			  }			  
+			  }	
+			  model.addAttribute("user_inicio", ses);
+			  return ret;
 		  } else {
 			  model.addAttribute("msg", "<script type=\"text/javascript\">$( window ).load(function() { adv(); }); </script>");
 			  return "key/index";

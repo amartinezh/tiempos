@@ -55,7 +55,7 @@ public class Flash_h implements Serializable{
 	@Column
 	private String cotype;
 	@Column
-	private String cotype_Desc;
+	private String cotypedesc;
 	@Column
 	private String cozon;
 	@Column
@@ -219,12 +219,12 @@ public class Flash_h implements Serializable{
 		this.cotype = cotype;
 	}
 
-	public String getCotype_Desc() {
-		return cotype_Desc;
+	public String getCotypedesc() {
+		return cotypedesc;
 	}
 
-	public void setCotype_Desc(String cotype_Desc) {
-		this.cotype_Desc = cotype_Desc;
+	public void setCotypedesc(String cotypedesc) {
+		this.cotypedesc = cotypedesc;
 	}
 
 	public String getCozon() {

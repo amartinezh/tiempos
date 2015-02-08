@@ -58,6 +58,7 @@
 
 	</head>
 	<body class="">
+	
 		<!-- possible classes: minified, fixed-ribbon, fixed-header, fixed-width-->
 
 		<!-- HEADER -->
@@ -139,20 +140,21 @@
 													<th data-hide="phone">Vrl</th>
 													<th data-hide="phone">BackLog</th>
 													<th data-hide="phone">Pedidas Mes</th>
-													<th data-hide="phone">Venta Día</th>													
-													<th data-hide="phone">Pedidas Día</th>													
+													<th data-hide="phone">Venta Día</th>												
+													<th data-hide="phone">Pedidas Día</th>
+													<th data-hide="phone">Marca</th>
 												</tr>
 											</thead>
 											<tbody>
 												<c:forEach items="${flash1ist}" var="Flashh" varStatus="loopCounter">														
-													<tr>
+													<tr onMouseOver="this.style.background = '#FFFFFF';this.style.color='#15B700'" onMouseOut="this.style.background='#EFF2EF';this.style.color=''" bgcolor="#EFF2EF">
 														<c:if test="${mostrar < 1}">
 															<td>
 																<c:out value="${Flashh.codesz}" />															
 															</td>
 														</c:if>
 														<td>
-															<c:out value="${Flashh.codzbp}" />														
+															<a href="c/${Flashh.cozon}" target="_blank"><c:out value="${Flashh.codzbp}" /></a>														
 														</td>
 														<td>
 															<fmt:formatNumber type="currency" value="${Flashh.clnet}"/>																														
@@ -180,7 +182,10 @@
 														</td>
 														<td>
 															<c:out value="${Flashh.ckqty}" />															
-														</td>														
+														</td>
+														<td>
+															<a href="m/${Flashh.cozon}/${Flashh.codesz}" target="_blank"> Marca </a>
+														</td>													
 													</tr>
 											  	</c:forEach>												 
 											</tbody>

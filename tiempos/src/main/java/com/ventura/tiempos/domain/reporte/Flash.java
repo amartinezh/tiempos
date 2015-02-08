@@ -55,7 +55,7 @@ public class Flash implements Serializable{
 	@Column
 	private String cotype;
 	@Column
-	private String cotype_Desc;
+	private String cotypedesc;
 	@Column
 	private String cozon;
 	@Column
@@ -95,13 +95,13 @@ public class Flash implements Serializable{
 	@Column
 	private BigDecimal clord;
 	@Column
-	private BigDecimal cldev;
+	private BigDecimal cldev;	
 	@Column
 	private BigDecimal cpdte;
 	@Column
 	private BigDecimal cpqty;
 	@Column
-	private BigDecimal ckqty;
+	private BigDecimal ckqty;	
 	@Column
 	private BigDecimal clnet;
 	@Column
@@ -219,12 +219,12 @@ public class Flash implements Serializable{
 		this.cotype = cotype;
 	}
 
-	public String getCotype_Desc() {
-		return cotype_Desc;
+	public String getCotypedesc() {
+		return cotypedesc;
 	}
 
-	public void setCotype_Desc(String cotype_Desc) {
-		this.cotype_Desc = cotype_Desc;
+	public void setCotype_Desc(String cotypedesc) {
+		this.cotypedesc = cotypedesc;
 	}
 
 	public String getCozon() {
@@ -477,6 +477,18 @@ public class Flash implements Serializable{
 		this.clnetb = clnetb;
 		this.clnetc = clnetc;
 		this.codesz = codesz;
+	}
+	
+	public Flash(String cotype, BigDecimal clqty, String cotypedesc, BigDecimal ckqty, BigDecimal clord, BigDecimal cldev, BigDecimal cpqty, BigDecimal clnet, BigDecimal cpdte) {
+		this.cotype = cotype;
+		this.cotypedesc = cotypedesc;
+		this.ckqty = ckqty;
+		this.clord = clord;
+		this.cldev = cldev;
+		this.cpqty = cpqty; 
+		this.clnet = clnet;
+		this.cpdte = cpdte;
+		this.clqty = clqty;
 	}
 	
 	public Flash(String cozon, String codzbp, BigDecimal ckqty, BigDecimal cpqty, BigDecimal clord, BigDecimal cldev, BigDecimal clnet, BigDecimal cpdte, BigDecimal clqty) {

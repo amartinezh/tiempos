@@ -10,7 +10,7 @@ public class session implements Serializable{
 	public String toString() {
 		return "session [usuario=" + usuario + ", permisos=" + permisos.toString()
 				+ ", tipo=" + tipo + ", nivel=" + nivel + ", company="
-				+ company + "]";
+				+ company + ", view=" + view + "]";
 	}
 
 	private String usuario;
@@ -18,6 +18,7 @@ public class session implements Serializable{
 	private String tipo;
 	private String nivel;
 	private String company;
+	private String view;
 		
 	public session() {
 		// TODO Auto-generated constructor stub
@@ -28,7 +29,7 @@ public class session implements Serializable{
 		this.permisos = permisos;
 		this.tipo = tipo;
 		this.nivel = nivel;
-		this.company = company;
+		this.company = company;		
 	}
 	public List<Map<String,String>> getPermisos() {
 		return permisos;
