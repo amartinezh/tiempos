@@ -55,7 +55,7 @@ public class JPAFlashDao implements FlashDao{
 	@SuppressWarnings("unchecked")
 	public List<Flash> getFlashListCanal(List<Map<String, String>> permisos) {
 		List<Object[]> resultados;
-		resultados = em.createQuery("SELECT f.cotype as cotype, f.cotypedesc as cotypedesc, Sum(f.ckqty) As ckqty, sum(f.clord) as clord, sum(f.cldev) as cldev, sum(f.cpqty) as cpqty, Sum(f.clnet) As clnet, sum(f.cpdte) as cpdte, sum(f.clqty) as clqty FROM Flash as f WHERE "+permisos.get(7).get("canal")+" and "+permisos.get(7).get(permisos.get(8).get("messel"))+" And "+permisos.get(6).get(permisos.get(8).get("anosel"))+" And "+ permisos.get(5).get(permisos.get(8).get("compa")) +" And " + permisos.get(4).get(permisos.get(8).get("nivel")) + " GROUP BY f.cotype, f.cotypedesc ").getResultList();
+		resultados = em.createQuery("SELECT f.cotype as cotype, f.cotypedesc as cotypedesc, Sum(f.ckqty) As ckqty, sum(f.clord) as clord, sum(f.cldev) as cldev, sum(f.cpqty) as cpqty, Sum(f.clnet) As clnet, sum(f.cpdte) as cpdte, sum(f.clqty) as clqty FROM Flash as f WHERE "+permisos.get(7).get("canal")+" and "+permisos.get(7).get(permisos.get(8).get("messel"))+" And "+permisos.get(6).get(permisos.get(8).get("anosel"))+" And "+ permisos.get(5).get(permisos.get(8).get("compa")) +" And " + permisos.get(4).get(permisos.get(8).get("nivel")) + " GROUP BY f.cotype, f.cotypedesc").getResultList();
 		List<Flash> resultadoss = new LinkedList<Flash>();
 		for(Object[] rest: resultados) {			
 			resultadoss.add(new Flash((String)rest[0], (BigDecimal)rest[8], (String)rest[1], new BigDecimal(rest[2].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[3].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[4].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[5].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[6].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[7].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN)));
@@ -63,4 +63,19 @@ public class JPAFlashDao implements FlashDao{
 		return resultadoss;
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Flash> getFlashListDistrito(List<Map<String, String>> permisos) {
+		List<Object[]> resultados;
+		resultados = em.createQuery("SELECT f.cozon as cozon, f.codzbp as codzbp, Sum(f.ckqty) As ckqty, sum(f.cpqty) as cpqty, sum(f.clord) as clord, sum(f.cldev) as cldev, Sum(f.clnet) As clnet, sum(f.cpdte) as cpdte, sum(f.clqty) as clqty FROM Flash as f WHERE "+permisos.get(7).get("canal")+" and "+permisos.get(7).get("cotype")+" and "+permisos.get(7).get(permisos.get(8).get("messel"))+" And "+permisos.get(6).get(permisos.get(8).get("anosel"))+" And "+ permisos.get(5).get(permisos.get(8).get("compa")) +" And " + permisos.get(4).get(permisos.get(8).get("nivel")) + " GROUP BY f.cozon, f.codzbp").getResultList();
+		List<Flash> resultadoss = new LinkedList<Flash>();
+		for(Object[] rest: resultados) {			
+			resultadoss.add(new Flash((String)rest[0], (String)rest[1], new BigDecimal(rest[2].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[3].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[4].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[5].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[6].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[7].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[8].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN)));
+		}
+		return resultadoss;
+	}
+
+	public List<Flash> getFlashListItem(List<Map<String, String>> permisos) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

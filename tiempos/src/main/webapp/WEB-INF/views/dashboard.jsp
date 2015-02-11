@@ -143,6 +143,7 @@
 													<th data-hide="phone">Venta Día</th>												
 													<th data-hide="phone">Pedidas Día</th>
 													<th data-hide="phone">Marca</th>
+													<th data-hide="phone">Items</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -185,7 +186,10 @@
 														</td>
 														<td>
 															<a href="m/${Flashh.cozon}/${Flashh.codesz}" target="_blank"> Marca </a>
-														</td>													
+														</td>
+														<td>
+															<a href="i/${Flashh.cozon}" target="_blank"> Item</a>														
+														</td>												
 													</tr>
 											  	</c:forEach>												 
 											</tbody>

@@ -1,33 +1,18 @@
 package com.ventura.tiempos.web.reporte;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.swing.text.MaskFormatter;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.method.annotation.ModelMethodProcessor;
 
 import com.ventura.tiempos.service.reporte.FlashManagerService;
-import com.ventura.tiempos.domain.adm.TypeUser;
-import com.ventura.tiempos.domain.login.User;
 import com.ventura.tiempos.domain.reporte.Flash;
 import com.ventura.tiempos.domain.session.session;
 
@@ -64,21 +49,57 @@ public class FlashController {
 	public String lanzar1(Model model) {
 		if(model.containsAttribute("user_inicio") == true) {
 			session ses = (session)(model.asMap().get("user_inicio"));
-			//model.addAttribute("flash", new Flash());
 			model.addAttribute("flash1ist", flashManagerService.getFlashListCanal(ses.getPermisos()));			
-	//		if(((session)(model.asMap().get("user_inicio"))).getPermisos().get(8).get("nivel").equalsIgnoreCase("exp")) {
-		//		model.addAttribute("mostrar", 1);
-			//} else {
-				//model.addAttribute("mostrar", 0);
-			//}
 			return "reportes/canal";		
 		} else {
 			return "redirect:/index/ingreso";
 		}
 	}
 	
-	@RequestMapping("/c/{cozon}")
-	public String getTypeUser(@PathVariable int cozon, Model model) {
+	@RequestMapping(value = "/distrito", method = RequestMethod.GET)
+	public String distrito(Model model) {
+		if(model.containsAttribute("user_inicio") == true) {
+			session ses = (session)(model.asMap().get("user_inicio"));
+			model.addAttribute("flash1ist", flashManagerService.getFlashListDistrito(ses.getPermisos()));
+			return "reportes/canal";		
+		} else {
+			return "redirect:/index/ingreso";
+		}
+	}
+	
+	@RequestMapping("/d/{cotype}")
+	public String getDistrito(@PathVariable int cotype, Model model) {
+		if(model.containsAttribute("user_inicio") == true) {			
+			((session)(model.asMap().get("user_inicio"))).getPermisos().get(7).put("distito", "f.cotype = '"+cotype+"'");			
+			return "redirect:/flash/distrito";
+		}else {
+			return "redirect:/index/ingreso";
+		}
+	}
+	
+	@RequestMapping("/c/{cozon}/{cotype}")
+	public String getCanal(@PathVariable int cozon, Model model) {
+		if(model.containsAttribute("user_inicio") == true) {			
+			((session)(model.asMap().get("user_inicio"))).getPermisos().get(7).put("canal", "f.cozon = '"+cozon+"'");			
+			return "redirect:/flash/canal";
+		}else {
+			return "redirect:/index/ingreso";
+		}
+	}
+	
+	@RequestMapping("/cd/{cozon}")
+	public String getCanalDistrito(@PathVariable int cozon, @PathVariable int cotype, Model model) {
+		if(model.containsAttribute("user_inicio") == true) {			
+			((session)(model.asMap().get("user_inicio"))).getPermisos().get(7).put("canal", "f.cozon = '"+cozon+"'");
+			((session)(model.asMap().get("user_inicio"))).getPermisos().get(7).put("distito", "f.cotype = '"+cotype+"'");
+			return "redirect:/flash/canal";
+		}else {
+			return "redirect:/index/ingreso";
+		}
+	}
+	
+	@RequestMapping("/i/{cozon}")
+	public String getItems(@PathVariable int cozon, Model model) {
 		if(model.containsAttribute("user_inicio") == true) {			
 			((session)(model.asMap().get("user_inicio"))).getPermisos().get(7).put("canal", "f.cozon = '"+cozon+"'");			
 			return "redirect:/flash/canal";

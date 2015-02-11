@@ -139,7 +139,7 @@
 												<c:forEach items="${flash1ist}" var="Flashh" varStatus="loopCounter">														
 													<tr>
 														<td>
-															<c:out value="${Flashh.cotypedesc}" />														
+															<a href=""><c:out value="${Flashh.cotypedesc}" /></a>														
 														</td>
 														<td>
 															<fmt:formatNumber type="currency" value="${Flashh.clnet}"/>																														
