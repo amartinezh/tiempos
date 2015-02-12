@@ -67,6 +67,17 @@ public class FlashController {
 		}
 	}
 	
+	@RequestMapping(value = "/items", method = RequestMethod.GET)
+	public String items(Model model) {
+		if(model.containsAttribute("user_inicio") == true) {
+			session ses = (session)(model.asMap().get("user_inicio"));
+			model.addAttribute("flash1ist", flashManagerService.getFlashListItem(ses.getPermisos()));
+			return "reportes/items";		
+		} else {
+			return "redirect:/index/ingreso";
+		}
+	}
+	
 	@RequestMapping("/d/{cotype}")
 	public String getDistrito(@PathVariable int cotype, Model model) {
 		if(model.containsAttribute("user_inicio") == true) {			
@@ -102,7 +113,7 @@ public class FlashController {
 	public String getItems(@PathVariable int cozon, Model model) {
 		if(model.containsAttribute("user_inicio") == true) {			
 			((session)(model.asMap().get("user_inicio"))).getPermisos().get(7).put("canal", "f.cozon = '"+cozon+"'");			
-			return "redirect:/flash/canal";
+			return "redirect:/flash/items";
 		}else {
 			return "redirect:/index/ingreso";
 		}
