@@ -126,7 +126,7 @@
 									<!-- widget content -->
 									<div class="widget-body no-padding">
 				
-										<table id="dt_basic" class="table table-striped table-bordered" width="100%">
+										<table  class="table table-striped table-bordered" width="100%">
 											<thead>			                
 												<tr>
 													<c:if test="${mostrar < 1}">
@@ -147,7 +147,8 @@
 												</tr>
 											</thead>
 											<tbody>
-												<c:forEach items="${flash1ist}" var="Flashh" varStatus="loopCounter">														
+												<c:forEach items="${flash1ist}" var="Flashh" varStatus="loopCounter">
+																										
 													<tr onMouseOver="this.style.background = '#FFFFFF';this.style.color='#15B700'" onMouseOut="this.style.background='#EFF2EF';this.style.color=''" bgcolor="#EFF2EF">
 														<c:if test="${mostrar < 1}">
 															<td>
