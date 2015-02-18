@@ -37,5 +37,17 @@ public class SimpleFlashManagerService implements FlashManagerService {
 	public List<Flash> getFlashListItem(List<Map<String, String>> permisos) {
 		return flashDao.getFlashListItem(permisos);		
 	}
+
+	public List<Flash> getFlashListCliente(List<Map<String, String>> permisos) {
+		return flashDao.getFlashListCliente(permisos);
+	}
+	
+	public List<Flash> getFlashListTipoMarca(List<Map<String, String>> permisos) {
+		return flashDao.getFlashListTipoMarca(permisos);
+	}
+	
+	public List<Flash> getFlashListCategoria(List<Map<String, String>> permisos) {
+		return flashDao.getFlashListCategoria(permisos);
+	}
 	
 }

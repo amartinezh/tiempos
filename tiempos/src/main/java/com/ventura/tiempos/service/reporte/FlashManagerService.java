@@ -12,5 +12,8 @@ public interface FlashManagerService extends Serializable {
 	public List<Flash> getFlashListCanal(List<Map<String, String>> permisos);
 	public List<Flash> getFlashListDistrito(List<Map<String, String>> permisos);
 	public List<Flash> getFlashListItem(List<Map<String, String>> permisos);
+	public List<Flash> getFlashListCliente(List<Map<String, String>> permisos);
+	public List<Flash> getFlashListTipoMarca(List<Map<String, String>> permisos);
+	public List<Flash> getFlashListCategoria(List<Map<String, String>> permisos);
 	
 }

@@ -175,6 +175,7 @@
 											<th data-hide="phone">Venta Día</th>
 											<th data-hide="phone">Pedidas Día</th>
 											<th data-hide="phone">Marca</th>
+											<th data-hide="phone">Clientes</th>
 											<th data-hide="phone">Items</th>
 										</tr>
 									</thead>
@@ -189,7 +190,7 @@
 												<c:if test="${mostrar < 1}">
 													<td><c:out value="${Flashh.codesz}" /></td>
 												</c:if>
-												<td><a href="c/${Flashh.cozon}" target="_blank"><c:out
+												<td><a href="c/${Flashh.cozon}"><c:out
 															value="${Flashh.codzbp}" /></a></td>
 												<td><fmt:formatNumber type="currency"
 														value="${Flashh.clnet}" /></td>
@@ -201,10 +202,9 @@
 												<td><c:out value="${Flashh.clord}" /></td>
 												<td><c:out value="${Flashh.cldev}" /></td>
 												<td><c:out value="${Flashh.ckqty}" /></td>
-												<td><a href="m/${Flashh.cozon}/${Flashh.codesz}"
-													target="_blank"> Marca </a></td>
-												<td><a href="i/${Flashh.cozon}" target="_blank">
-														Item</a></td>
+												<td><a href="m/${Flashh.cozon}/${Flashh.codesz}"> Marca </a></td>
+												<td><a href="cli/${Flashh.cozon}">Clientes</a></td>
+												<td><a href="i/${Flashh.cozon}">Item</a></td>
 											</tr>
 										</c:forEach>
 									</tbody>

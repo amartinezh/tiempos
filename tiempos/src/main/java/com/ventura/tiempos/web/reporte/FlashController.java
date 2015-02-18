@@ -49,7 +49,8 @@ public class FlashController {
 	public String lanzar1(Model model) {
 		if(model.containsAttribute("user_inicio") == true) {
 			session ses = (session)(model.asMap().get("user_inicio"));
-			model.addAttribute("flash1ist", flashManagerService.getFlashListCanal(ses.getPermisos()));			
+			model.addAttribute("flash1ist", flashManagerService.getFlashListCanal(ses.getPermisos()));
+			model.addAttribute("devolver", "info");
 			return "reportes/canal";		
 		} else {
 			return "redirect:/index/ingreso";
@@ -78,6 +79,17 @@ public class FlashController {
 		}
 	}
 	
+	@RequestMapping(value = "/cliente", method = RequestMethod.GET)
+	public String clientes(Model model) {
+		if(model.containsAttribute("user_inicio") == true) {
+			session ses = (session)(model.asMap().get("user_inicio"));
+			model.addAttribute("flash1ist", flashManagerService.getFlashListCliente(ses.getPermisos()));
+			return "reportes/clientes";		
+		} else {
+			return "redirect:/index/ingreso";
+		}
+	}
+	
 	@RequestMapping("/d/{cotype}")
 	public String getDistrito(@PathVariable int cotype, Model model) {
 		if(model.containsAttribute("user_inicio") == true) {			
@@ -88,7 +100,7 @@ public class FlashController {
 		}
 	}
 	
-	@RequestMapping("/c/{cozon}/{cotype}")
+	@RequestMapping("/c/{cozon}")
 	public String getCanal(@PathVariable int cozon, Model model) {
 		if(model.containsAttribute("user_inicio") == true) {			
 			((session)(model.asMap().get("user_inicio"))).getPermisos().get(7).put("canal", "f.cozon = '"+cozon+"'");			
@@ -118,6 +130,16 @@ public class FlashController {
 			return "redirect:/index/ingreso";
 		}
 	}
+	
+	@RequestMapping("/cli/{cozon}")
+	public String getClientes(@PathVariable int cozon, Model model) {
+		if(model.containsAttribute("user_inicio") == true) {			
+			((session)(model.asMap().get("user_inicio"))).getPermisos().get(7).put("canal", "f.cozon = '"+cozon+"'");			
+			return "redirect:/flash/cliente";
+		}else {
+			return "redirect:/index/ingreso";
+		}
+	}	
 	
 	@RequestMapping(value = "/actualizar", method = RequestMethod.GET)
 	public String actualizar(Model model) {
