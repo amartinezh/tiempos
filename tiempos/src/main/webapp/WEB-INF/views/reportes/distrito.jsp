@@ -122,6 +122,12 @@
 						class="fa fa-sign-out"></i></a>
 				</span>
 			</div>
+			<div id="regresar" class="btn-header transparent pull-right">										
+				<span> <a href="${devolverdistrit}" title="Atras">Atras</a> </span>
+			</div>
+			<div id="iinicio" class="btn-header transparent pull-right">										
+				<span> <a href="info" title="Inicio">Inicio</a> </span>
+			</div>	
 			<!-- end logout button -->
 
 		</div>

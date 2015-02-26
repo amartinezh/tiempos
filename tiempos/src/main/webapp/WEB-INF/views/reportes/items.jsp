@@ -122,6 +122,12 @@
 						class="fa fa-sign-out"></i></a>
 				</span>
 			</div>
+			<div id="regresar" class="btn-header transparent pull-right">										
+				<span> <a href="${devolveritems}" title="Atras">Atras</a> </span>
+			</div>
+			<div id="iinicio" class="btn-header transparent pull-right">										
+				<span> <a href="info" title="Inicio">Inicio</a> </span>
+			</div>			
 			<!-- end logout button -->
 
 		</div>
@@ -198,6 +204,11 @@
 													</c:choose></td>
 											</tr>
 										</c:forEach>
+										<tr>
+											<td colspan="10" align="center"></td>
+											</tr><tr>
+											<td colspan="10" align="center">Usuario: <c:out value="${usuarioactuall}" /></td>
+										</tr>
 									</tbody>
 								</table>
 							</div>

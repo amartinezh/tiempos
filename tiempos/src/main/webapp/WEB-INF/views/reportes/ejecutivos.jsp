@@ -116,14 +116,18 @@
 				</li>
 			</ul>
 			<div id="logout" class="btn-header transparent pull-right">
-				<span> <a href="salir" title="Sign Out" data-action="userLogout" data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i class="fa fa-sign-out"></i></a> </span>
+				<span> <a href="salir" title="Sign Out"
+					data-action="userLogout"
+					data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i
+						class="fa fa-sign-out"></i></a>
+				</span>
 			</div>
 			<div id="regresar" class="btn-header transparent pull-right">										
-				<span> <a href="${devolvercanal}" title="Atras">Atras</a> </span>
+				<span> <a href="${devolvervendedor}" title="Atras">Atras</a> </span>
 			</div>
 			<div id="iinicio" class="btn-header transparent pull-right">										
 				<span> <a href="info" title="Inicio">Inicio</a> </span>
-			</div>					
+			</div>		
 			<!-- end logout button -->
 
 		</div>
@@ -159,28 +163,31 @@
 								<table class="table table-striped table-bordered" width="100%">
 									<thead>
 										<tr>
-											<th>Canal</th>
-											<th>Valor Facturado</th>
-											<th>Presup.</th>
+											<th>Codigo</th>
+											<th>Cliente</th>
+									<th>Valor Facturado</th>
+									<!--			<th>Presup.</th>
 											<th data-hide="phone">Venta</th>
 											<th data-hide="phone">BackLog</th>
 											<th data-hide="phone">Pedidas Mes</th>
-
+-->
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach items="${flash1ist}" var="Flashh"
-											varStatus="loopCounter">
+										<c:forEach items="${flash1ist}" var="Flashh" varStatus="loopCounter">
 											<tr>
-												<td><a href="d/${Flashh.cotype}"><c:out value="${Flashh.cotypedesc}" /></a>
+												<td><c:out value="${Flashh.coccus}" />
+												</td>
+												
+												<td><c:out value="${Flashh.concus}" />
 												</td>
 												<td><fmt:formatNumber type="currency"
 														value="${Flashh.clnet}" /></td>
-												<td><c:out value="${Flashh.cpqty}" /></td>
+											<!--	<td><c:out value="${Flashh.cpqty}" /></td>
 												<td><c:out value="${Flashh.clqty}" /></td>
 												<td><c:out value="${Flashh.cpdte}" /></td>
 												<td><c:out value="${Flashh.ckqty}" /></td>
-												
+												-->
 											</tr>
 										</c:forEach>
 									</tbody>

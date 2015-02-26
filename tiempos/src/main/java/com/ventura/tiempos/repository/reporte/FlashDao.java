@@ -14,5 +14,6 @@ public interface FlashDao {
 	public List<Flash> getFlashListCliente(List<Map<String, String>> permisos);
 	public List<Flash> getFlashListTipoMarca(List<Map<String, String>> permisos);
 	public List<Flash> getFlashListCategoria(List<Map<String, String>> permisos);
+	public List<Flash> getFlashListVendedor(List<Map<String, String>> permisos);
 	
 }

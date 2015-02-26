@@ -114,11 +114,11 @@ public class Flash implements Serializable{
 	private BigDecimal clnetc;
 	@Column
 	private String codesz;
-		
+	
 	public int getAno() {
 		return ano;
 	}
-
+	
 	public void setAno(int ano) {
 		this.ano = ano;
 	}
@@ -462,8 +462,32 @@ public class Flash implements Serializable{
 	public Flash() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Flash(String cozon, String codesz) {
+		this.cozon = cozon;
+		this.codesz = codesz;
+	}
+	
+	public void sumarValores(Flash flash) {
+		ckqty=ckqty.add(flash.getCkqty());
+		cpqty=cpqty.add(flash.getCpqty());
+		clord=clord.add(flash.getClord());
+		cldev=cldev.add(flash.getCldev());
+		clnet=clnet.add(flash.getClnet());
+		cpdte=cpdte.add(flash.getCpdte());
+		clqty=clqty.add(flash.getClqty());
+		clqtyb=clqtyb.add(flash.getClqtyb());
+		clnetb=clnetb.add(flash.getClnetb());
+		clnetc=clnetc.add(flash.getClnetc());	
+		clcar=clcar.add(flash.getClcar());
+/*		if(this.cpqty.equals(new BigDecimal(0).setScale(0, BigDecimal.ROUND_HALF_EVEN))) {
+			cumpl = new BigDecimal(0).setScale(2, BigDecimal.ROUND_HALF_EVEN);
+		} else {
+			cumpl = (clqty.divide(cpqty)).multiply(new BigDecimal(100).setScale(2, BigDecimal.ROUND_HALF_EVEN)).setScale(2, BigDecimal.ROUND_HALF_EVEN);
+		}*/
+	}
 		
-	public Flash(String cozon, String codzbp, BigDecimal ckqty, BigDecimal cpqty, BigDecimal clord, BigDecimal cldev, BigDecimal clnet, BigDecimal cpdte, BigDecimal clqty, BigDecimal clqtyb, BigDecimal clnetb, BigDecimal clnetc, String codesz) {
+	public Flash(String cozon, String codzbp, BigDecimal ckqty, BigDecimal cpqty, BigDecimal clord, BigDecimal cldev, BigDecimal clnet, BigDecimal cpdte, BigDecimal clqty, BigDecimal clqtyb, BigDecimal clnetb, BigDecimal clnetc, String codesz, BigDecimal clcar) {
 		this.cozon = cozon;
 		this.codzbp = codzbp;
 		this.ckqty = ckqty;
@@ -477,6 +501,13 @@ public class Flash implements Serializable{
 		this.clnetb = clnetb;
 		this.clnetc = clnetc;
 		this.codesz = codesz;
+		this.clcar=clcar;
+		/*
+		if(this.cpqty.equals(new BigDecimal(0).setScale(0, BigDecimal.ROUND_HALF_EVEN))) {
+			this.cumpl = new BigDecimal(0).setScale(2, BigDecimal.ROUND_HALF_EVEN);
+		} else {
+			this.cumpl = (clqty.divide(cpqty)).multiply(new BigDecimal(100).setScale(2, BigDecimal.ROUND_HALF_EVEN)).setScale(2, BigDecimal.ROUND_HALF_EVEN);
+		}*/
 	}
 	
 	public Flash(String cotype, BigDecimal clqty, String cotypedesc, BigDecimal ckqty, BigDecimal clord, BigDecimal cldev, BigDecimal cpqty, BigDecimal clnet, BigDecimal cpdte) {
@@ -527,6 +558,42 @@ public class Flash implements Serializable{
 		this.cpdte = cpdte;
 		this.clqty = clqty;
 		this.codesz = codesz;
+	}
+	
+	public Flash(BigDecimal cosal, String coname, BigDecimal ckqty, BigDecimal cpqty, BigDecimal clord, BigDecimal cldev, BigDecimal clnet, BigDecimal cpdte, BigDecimal clqty) {
+		this.cosal = cosal;
+		this.coname = coname;
+		this.ckqty = ckqty;
+		this.cpqty = cpqty;
+		this.clord = clord;
+		this.cldev = cldev;
+		this.clnet = clnet;
+		this.cpdte = cpdte;
+		this.clqty = clqty;
+	}  
+	
+	public Flash(String codes04, BigDecimal ckqty, BigDecimal cpqty, BigDecimal clord, BigDecimal cldev, BigDecimal clnet, BigDecimal cpdte, BigDecimal clqty, String codesz) {
+		this.codes04 = codes04;
+		this.ckqty = ckqty;
+		this.cpqty = cpqty;
+		this.clord = clord;
+		this.cldev = cldev;
+		this.clnet = clnet;
+		this.cpdte = cpdte;
+		this.clqty = clqty;
+		this.codesz = codesz;
+	}
+	
+	public Flash(BigDecimal ckqty, BigDecimal clord, BigDecimal cpqty, BigDecimal cldev, BigDecimal clnet, BigDecimal cpdte, BigDecimal clqty, String codesz, String codestm) {
+		this.ckqty = ckqty;
+		this.clord = clord;
+		this.cpqty = cpqty;
+		this.cldev = cldev;
+		this.clnet = clnet;
+		this.cpdte = cpdte;
+		this.clqty = clqty;
+		this.codesz = codesz;
+		this.codestm = codestm;
 	}
 	
 	public String toString() {

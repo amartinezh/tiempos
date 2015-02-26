@@ -49,8 +49,8 @@ public class IndexController {
 		  if (uss != null) {
 			  String ret = "";
 			  session ses = null;
-			  if(uss.getTip_usuario().getDescripcion().equalsIgnoreCase("gerente general")) {
-				  ses = new session(uss.getId(), permisoManager.getPermisos(uss), uss.getTip_usuario().getDescripcion(), uss.getLevel().getDescripcion(), uss.getComp().getDescripcion());				  
+			  ses = new session(uss.getId(), permisoManager.getPermisos(uss), uss.getTip_usuario().getDescripcion(), uss.getLevel().getDescripcion(), uss.getComp().getDescripcion());
+			  if(uss.getTip_usuario().getDescripcion().equalsIgnoreCase("gerente general")) {				  				  
 				  ret = "redirect:/flash/info";  
 			  } else if(uss.getTip_usuario().getDescripcion().equalsIgnoreCase("gerente agencia")) {
 				  ret = "redirect:/agencia/reporte";
@@ -59,7 +59,7 @@ public class IndexController {
 			  }else {			  
 				  return "key/index";
 			  }	
-			  model.addAttribute("user_inicio", ses);
+			  model.addAttribute("user_inicio", ses);			  
 			  return ret;
 		  } else {
 			  model.addAttribute("msg", "<script type=\"text/javascript\">$( window ).load(function() { adv(); }); </script>");

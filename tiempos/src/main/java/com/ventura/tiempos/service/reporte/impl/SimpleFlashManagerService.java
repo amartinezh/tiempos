@@ -50,4 +50,8 @@ public class SimpleFlashManagerService implements FlashManagerService {
 		return flashDao.getFlashListCategoria(permisos);
 	}
 	
+	public List<Flash> getFlashListVendedor(List<Map<String, String>> permisos) {
+		return flashDao.getFlashListVendedor(permisos);
+	}
+	
 }
