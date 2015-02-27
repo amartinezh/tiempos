@@ -486,6 +486,18 @@ public class Flash implements Serializable{
 			cumpl = (clqty.divide(cpqty)).multiply(new BigDecimal(100).setScale(2, BigDecimal.ROUND_HALF_EVEN)).setScale(2, BigDecimal.ROUND_HALF_EVEN);
 		}*/
 	}
+	
+	public void sumarValoresCanal(Flash flash) {
+		ckqty=ckqty.add(flash.getCkqty());
+		clord=clord.add(flash.getClord());
+		cldev=cldev.add(flash.getCldev());
+		cpqty=cpqty.add(flash.getCpqty());
+		clnet=clnet.add(flash.getClnet());
+		cpdte=cpdte.add(flash.getCpdte());
+		clqty=clqty.add(flash.getClqty());
+		clcar=clcar.add(flash.getClcar());
+	}
+	//Sum(f.ckqty) As ckqty, sum(f.clord) as clord,cpqty, Sum(f.clnet) As clnet, sum(f.cpdte) as cpdte, sum(f.clqty) as clqty, avg(f.clcar) as clcar
 		
 	public Flash(String cozon, String codzbp, BigDecimal ckqty, BigDecimal cpqty, BigDecimal clord, BigDecimal cldev, BigDecimal clnet, BigDecimal cpdte, BigDecimal clqty, BigDecimal clqtyb, BigDecimal clnetb, BigDecimal clnetc, String codesz, BigDecimal clcar) {
 		this.cozon = cozon;
@@ -510,7 +522,7 @@ public class Flash implements Serializable{
 		}*/
 	}
 	
-	public Flash(String cotype, BigDecimal clqty, String cotypedesc, BigDecimal ckqty, BigDecimal clord, BigDecimal cldev, BigDecimal cpqty, BigDecimal clnet, BigDecimal cpdte) {
+	public Flash(String cotype, BigDecimal clqty, String cotypedesc, BigDecimal ckqty, BigDecimal clord, BigDecimal cldev, BigDecimal cpqty, BigDecimal clnet, BigDecimal cpdte, BigDecimal clcar) {
 		this.cotype = cotype;
 		this.cotypedesc = cotypedesc;
 		this.ckqty = ckqty;
@@ -520,9 +532,10 @@ public class Flash implements Serializable{
 		this.clnet = clnet;
 		this.cpdte = cpdte;
 		this.clqty = clqty;
+		this.clcar = clcar;
 	}
 	
-	public Flash(String cozon, String codzbp, BigDecimal ckqty, BigDecimal cpqty, BigDecimal clord, BigDecimal cldev, BigDecimal clnet, BigDecimal cpdte, BigDecimal clqty) {
+	public Flash(String cozon, String codzbp, BigDecimal ckqty, BigDecimal cpqty, BigDecimal clord, BigDecimal cldev, BigDecimal clnet, BigDecimal cpdte, BigDecimal clqty, BigDecimal clcar) {
 		this.cozon = cozon;
 		this.codzbp = codzbp;
 		this.ckqty = ckqty;
@@ -532,6 +545,7 @@ public class Flash implements Serializable{
 		this.clnet = clnet;
 		this.cpdte = cpdte;
 		this.clqty = clqty;
+		this.clcar = clcar;
 	}
 	
 	public Flash(String coprod, String codesb, BigDecimal ckqty, BigDecimal cpqty, BigDecimal clord, BigDecimal cldev, BigDecimal clnet, BigDecimal cpdte, BigDecimal clqty, String codesz) {

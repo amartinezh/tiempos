@@ -122,12 +122,14 @@
 						class="fa fa-sign-out"></i></a>
 				</span>
 			</div>
-			<div id="regresar" class="btn-header transparent pull-right">										
-				<span> <a href="${devolverdistrit}" title="Atras">Atras</a> </span>
+			<div id="regresar" class="btn-header transparent pull-right">
+				<span> <a href="${devolverdistrit}" title="Atras">Atras</a>
+				</span>
 			</div>
-			<div id="iinicio" class="btn-header transparent pull-right">										
-				<span> <a href="info" title="Inicio">Inicio</a> </span>
-			</div>	
+			<div id="iinicio" class="btn-header transparent pull-right">
+				<span> <a href="info" title="Inicio">Inicio</a>
+				</span>
+			</div>
 			<!-- end logout button -->
 
 		</div>
@@ -173,6 +175,7 @@
 											<th data-hide="phone">Pedidas Mes</th>
 											<th data-hide="phone">Venta Día</th>
 											<th data-hide="phone">Pedidas Día</th>
+											<th data-hide="phone">Cartera</th>
 											<th data-hide="phone">Marca</th>
 										</tr>
 									</thead>
@@ -180,8 +183,15 @@
 										<c:forEach items="${flash1ist}" var="Flashh"
 											varStatus="loopCounter">
 											<tr>
-												<td><a href="/cd/${Flashh.cozon}"><c:out
-															value="${Flashh.codzbp}" /></a></td>
+												<c:choose>
+													<c:when test="${Flashh.cozon == 'c'}">
+														<td><c:out value="${Flashh.codzbp}" /></td>
+													</c:when>
+													<c:otherwise>
+														<td><a href="/cd/${Flashh.cozon}"><c:out
+																	value="${Flashh.codzbp}" /></a></td>
+													</c:otherwise>
+												</c:choose>
 												<td><fmt:formatNumber type="currency"
 														value="${Flashh.clnet}" /></td>
 												<td><c:out value="${Flashh.cpqty}" /></td>
@@ -192,9 +202,18 @@
 												<td><c:out value="${Flashh.clord}" /></td>
 												<td><c:out value="${Flashh.cldev}" /></td>
 												<td><c:out value="${Flashh.ckqty}" /></td>
+												<td><fmt:formatNumber type="currency"
+														value="${Flashh.clcar}" /></td>
 												<td></td>
 											</tr>
 										</c:forEach>
+										<tr>
+											<td colspan="11" align="center"></td>
+										</tr>
+										<tr>
+											<td colspan="11" align="center">Usuario: <c:out
+													value="${usuarioactuall}" /></td>
+										</tr>
 									</tbody>
 								</table>
 							</div>

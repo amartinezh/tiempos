@@ -51,7 +51,8 @@ public class FlashController {
 		if(model.containsAttribute("user_inicio") == true) {			
 			model.addAttribute("devolvercanal", "info");
 			session ses = (session)(model.asMap().get("user_inicio"));			
-			model.addAttribute("flash1ist", flashManagerService.getFlashListCanal(ses.getPermisos()));			
+			model.addAttribute("flash1ist", flashManagerService.getFlashListCanal(ses.getPermisos()));
+			model.addAttribute("usuarioactuall", ses.getUsuario());
 			return "reportes/canal";		
 		} else {
 			return "redirect:/index/ingreso";
@@ -64,7 +65,8 @@ public class FlashController {
 			model.addAttribute("devolverdistrit", "canal");
 			session ses = (session)(model.asMap().get("user_inicio"));			
 			model.addAttribute("flash1ist", flashManagerService.getFlashListDistrito(ses.getPermisos()));
-			return "reportes/canal";		
+			model.addAttribute("usuarioactuall", ses.getUsuario());
+			return "reportes/distrito";		
 		} else {
 			return "redirect:/index/ingreso";
 		}

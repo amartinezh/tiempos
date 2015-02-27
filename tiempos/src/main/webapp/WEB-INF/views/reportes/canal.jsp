@@ -165,24 +165,53 @@
 											<th data-hide="phone">Venta</th>
 											<th data-hide="phone">BackLog</th>
 											<th data-hide="phone">Pedidas Mes</th>
-
+											<th data-hide="phone">Venta Día</th>
+											<th data-hide="phone">Pedidas Día</th>
+											<th data-hide="phone">Cartera</th>
+											<th data-hide="phone">Precio Prom</th>
+											<th data-hide="phone">Cli</th>
 										</tr>
 									</thead>
 									<tbody>
 										<c:forEach items="${flash1ist}" var="Flashh"
 											varStatus="loopCounter">
 											<tr>
-												<td><a href="d/${Flashh.cotype}"><c:out value="${Flashh.cotypedesc}" /></a>
-												</td>
+												<c:choose>
+													<c:when test="${ Flashh.cotype == 'c' }">
+														<td><c:out value="${Flashh.cotypedesc}" /></td>
+													</c:when>
+													<c:otherwise>													
+														<td><a href="d/${Flashh.cotype}"><c:out value="${Flashh.cotypedesc}" /></a></td>
+													</c:otherwise>
+												</c:choose>												
 												<td><fmt:formatNumber type="currency"
 														value="${Flashh.clnet}" /></td>
 												<td><c:out value="${Flashh.cpqty}" /></td>
 												<td><c:out value="${Flashh.clqty}" /></td>
 												<td><c:out value="${Flashh.cpdte}" /></td>
+												<td><c:out value="${Flashh.clord}" /></td>
+												<td><c:out value="${Flashh.cldev}" /></td>
 												<td><c:out value="${Flashh.ckqty}" /></td>
-												
+												<td><c:out value="${Flashh.clcar}" /></td>
+												<c:choose>
+													<c:when test="${Flashh.clqty > 0}"> 
+														<td><fmt:formatNumber type="currency"
+														value="${ Flashh.clnet/Flashh.clqty }" /></td>
+													</c:when>
+													<c:otherwise>
+														<td><fmt:formatNumber type="currency"
+														value="${ Flashh.clqty }" /></td>
+													</c:otherwise>
+												</c:choose>
+												<td><c:out value="cliente"></c:out></td>
 											</tr>
 										</c:forEach>
+										<tr>
+											<td colspan="11" align="center"></td>
+										</tr>
+										<tr>
+											<td colspan="11" align="center">Usuario: <c:out value="${usuarioactuall}" /></td>
+										</tr>
 									</tbody>
 								</table>
 							</div>

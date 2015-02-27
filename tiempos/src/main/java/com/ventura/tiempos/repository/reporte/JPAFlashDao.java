@@ -65,26 +65,32 @@ public class JPAFlashDao implements FlashDao{
 		resultadoss.add(total);
 		return resultadoss;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public List<Flash> getFlashListCanal(List<Map<String, String>> permisos) {
 		List<Object[]> resultados;
-		resultados = em.createQuery("SELECT f.cotype as cotype, f.cotypedesc as cotypedesc, Sum(f.ckqty) As ckqty, sum(f.clord) as clord, sum(f.cldev) as cldev, sum(f.cpqty) as cpqty, Sum(f.clnet) As clnet, sum(f.cpdte) as cpdte, sum(f.clqty) as clqty FROM Flash as f WHERE "+permisos.get(7).get("condicioncanal")+" and "+permisos.get(7).get(permisos.get(8).get("messel"))+" And "+permisos.get(6).get(permisos.get(8).get("anosel"))+" And "+ permisos.get(5).get(permisos.get(8).get("compa")) +" And " + permisos.get(4).get(permisos.get(8).get("nivel")) + " GROUP BY f.cotype, f.cotypedesc").getResultList();
+		resultados = em.createQuery("SELECT f.cotype as cotype, f.cotypedesc as cotypedesc, Sum(f.ckqty) As ckqty, sum(f.clord) as clord, sum(f.cldev) as cldev, sum(f.cpqty) as cpqty, Sum(f.clnet) As clnet, sum(f.cpdte) as cpdte, sum(f.clqty) as clqty, avg(f.clcar) as clcar FROM Flash as f WHERE "+permisos.get(7).get("condicioncanal")+" and "+permisos.get(7).get(permisos.get(8).get("messel"))+" And "+permisos.get(6).get(permisos.get(8).get("anosel"))+" And "+ permisos.get(5).get(permisos.get(8).get("compa")) +" And " + permisos.get(4).get(permisos.get(8).get("nivel")) + " GROUP BY f.cotype, f.cotypedesc").getResultList();
 		List<Flash> resultadoss = new LinkedList<Flash>();
+		Flash total = new Flash("c", new BigDecimal(0).setScale(0, BigDecimal.ROUND_HALF_EVEN), "TOTAL", new BigDecimal(0).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(0).setScale(0, BigDecimal.ROUND_HALF_EVEN),  new BigDecimal(0).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(0).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(0).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(0).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(0).setScale(0, BigDecimal.ROUND_HALF_EVEN));
 		for(Object[] rest: resultados) {			
-			resultadoss.add(new Flash((String)rest[0], new BigDecimal(rest[8].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), (String)rest[1], new BigDecimal(rest[2].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[3].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[4].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[5].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[6].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[7].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN)));
+			resultadoss.add(new Flash((String)rest[0], new BigDecimal(rest[8].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), (String)rest[1], new BigDecimal(rest[2].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[3].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[4].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[5].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[6].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[7].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[9].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN)));
+			total.sumarValoresCanal(resultadoss.get(resultadoss.size()-1));
 		}
+		resultadoss.add(total);
 		return resultadoss;
 	}
 	
 	@SuppressWarnings("unchecked")
 	public List<Flash> getFlashListDistrito(List<Map<String, String>> permisos) {
-		List<Object[]> resultados;
-		resultados = em.createQuery("SELECT f.cozon as cozon, f.codzbp as codzbp, Sum(f.ckqty) As ckqty, sum(f.cpqty) as cpqty, sum(f.clord) as clord, sum(f.cldev) as cldev, Sum(f.clnet) As clnet, sum(f.cpdte) as cpdte, sum(f.clqty) as clqty FROM Flash as f WHERE "+permisos.get(7).get("condicionaldistitoc")+" and "+permisos.get(7).get("condicionaldistito")+" and "+permisos.get(7).get(permisos.get(8).get("messel"))+" And "+permisos.get(6).get(permisos.get(8).get("anosel"))+" And "+ permisos.get(5).get(permisos.get(8).get("compa")) +" and " + permisos.get(4).get(permisos.get(8).get("nivel")) + " GROUP BY f.cozon, f.codzbp").getResultList();
+		List<Object[]> resultados;		
+		resultados = em.createQuery("SELECT f.cozon as cozon, f.codzbp as codzbp, Sum(f.ckqty) As ckqty, sum(f.cpqty) as cpqty, sum(f.clord) as clord, sum(f.cldev) as cldev, Sum(f.clnet) As clnet, sum(f.cpdte) as cpdte, sum(f.clqty) as clqty, avg(f.clcar) as clcar FROM Flash as f WHERE "+permisos.get(7).get("condicionaldistitoc")+" and "+permisos.get(7).get("condicionaldistito")+" and "+permisos.get(7).get(permisos.get(8).get("messel"))+" And "+permisos.get(6).get(permisos.get(8).get("anosel"))+" And "+ permisos.get(5).get(permisos.get(8).get("compa")) +" and " + permisos.get(4).get(permisos.get(8).get("nivel")) + " GROUP BY f.cozon, f.codzbp").getResultList();
 		List<Flash> resultadoss = new LinkedList<Flash>();
+		Flash total = new Flash("c", "TOTAL", new BigDecimal(0).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(0).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(0).setScale(0, BigDecimal.ROUND_HALF_EVEN),  new BigDecimal(0).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(0).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(0).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(0).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(0).setScale(0, BigDecimal.ROUND_HALF_EVEN));
 		for(Object[] rest: resultados) {			
-			resultadoss.add(new Flash((String)rest[0], (String)rest[1], new BigDecimal(rest[2].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[3].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[4].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[5].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[6].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[7].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[8].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN)));
+			resultadoss.add(new Flash((String)rest[0], (String)rest[1], new BigDecimal(rest[2].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[3].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[4].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[5].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[6].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[7].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[8].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN), new BigDecimal(rest[9].toString()).setScale(0, BigDecimal.ROUND_HALF_EVEN)));
+			total.sumarValoresCanal(resultadoss.get(resultadoss.size()-1));
 		}
+		resultadoss.add(total);
 		return resultadoss;
 	}
 
