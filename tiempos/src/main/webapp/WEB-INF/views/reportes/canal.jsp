@@ -192,7 +192,7 @@
 												<td><c:out value="${Flashh.clord}" /></td>
 												<td><c:out value="${Flashh.cldev}" /></td>
 												<td><c:out value="${Flashh.ckqty}" /></td>
-												<td><c:out value="${Flashh.clcar}" /></td>
+												<td><fmt:formatNumber type="currency" value="${Flashh.clcar}" /></td>
 												<c:choose>
 													<c:when test="${Flashh.clqty > 0}"> 
 														<td><fmt:formatNumber type="currency"

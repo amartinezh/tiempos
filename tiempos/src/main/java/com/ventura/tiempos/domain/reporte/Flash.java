@@ -497,7 +497,7 @@ public class Flash implements Serializable{
 		clqty=clqty.add(flash.getClqty());
 		clcar=clcar.add(flash.getClcar());
 	}
-	//Sum(f.ckqty) As ckqty, sum(f.clord) as clord,cpqty, Sum(f.clnet) As clnet, sum(f.cpdte) as cpdte, sum(f.clqty) as clqty, avg(f.clcar) as clcar
+	//Sum(f.ckqty) As ckqty, sum(f.cpqty) as cpqty, sum(f.clord) as clord, sum(f.cldev) as cldev, Sum(f.clnet) As clnet, sum(f.cpdte) as cpdte, sum(f.clqty) as clqty
 		
 	public Flash(String cozon, String codzbp, BigDecimal ckqty, BigDecimal cpqty, BigDecimal clord, BigDecimal cldev, BigDecimal clnet, BigDecimal cpdte, BigDecimal clqty, BigDecimal clqtyb, BigDecimal clnetb, BigDecimal clnetc, String codesz, BigDecimal clcar) {
 		this.cozon = cozon;
@@ -561,7 +561,7 @@ public class Flash implements Serializable{
 		this.codesz = codesz;
 	}
 	
-	public Flash(BigDecimal coccus, String concus, BigDecimal ckqty, BigDecimal cpqty, BigDecimal clord, BigDecimal cldev, BigDecimal clnet, BigDecimal cpdte, BigDecimal clqty, String codesz) {
+	public Flash(BigDecimal coccus, String concus, BigDecimal ckqty, BigDecimal cpqty, BigDecimal clord, BigDecimal cldev, BigDecimal clnet, BigDecimal cpdte, BigDecimal clqty, String codesz, BigDecimal clcar) {
 		this.coccus = coccus;
 		this.concus = concus;
 		this.ckqty = ckqty;
@@ -572,6 +572,7 @@ public class Flash implements Serializable{
 		this.cpdte = cpdte;
 		this.clqty = clqty;
 		this.codesz = codesz;
+		this.clcar = clcar;
 	}
 	
 	public Flash(BigDecimal cosal, String coname, BigDecimal ckqty, BigDecimal cpqty, BigDecimal clord, BigDecimal cldev, BigDecimal clnet, BigDecimal cpdte, BigDecimal clqty) {

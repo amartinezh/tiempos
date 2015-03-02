@@ -165,12 +165,8 @@
 										<tr>
 											<th>Codigo</th>
 											<th>Cliente</th>
-									<th>Valor Facturado</th>
-									<!--			<th>Presup.</th>
-											<th data-hide="phone">Venta</th>
-											<th data-hide="phone">BackLog</th>
-											<th data-hide="phone">Pedidas Mes</th>
--->
+											<th>Valor Facturado</th>
+									
 										</tr>
 									</thead>
 									<tbody>
@@ -183,11 +179,7 @@
 												</td>
 												<td><fmt:formatNumber type="currency"
 														value="${Flashh.clnet}" /></td>
-											<!--	<td><c:out value="${Flashh.cpqty}" /></td>
-												<td><c:out value="${Flashh.clqty}" /></td>
-												<td><c:out value="${Flashh.cpdte}" /></td>
-												<td><c:out value="${Flashh.ckqty}" /></td>
-												-->
+											
 											</tr>
 										</c:forEach>
 									</tbody>

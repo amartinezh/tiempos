@@ -91,6 +91,7 @@ public class FlashController {
 			model.addAttribute("devolvercliente", "info");
 			session ses = (session)(model.asMap().get("user_inicio"));
 			model.addAttribute("flash1ist", flashManagerService.getFlashListCliente(ses.getPermisos()));
+			model.addAttribute("usuarioactuall", ses.getUsuario());
 			return "reportes/clientes";		
 		} else {
 			return "redirect:/index/ingreso";
