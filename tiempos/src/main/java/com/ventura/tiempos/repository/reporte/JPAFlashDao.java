@@ -69,7 +69,7 @@ public class JPAFlashDao implements FlashDao{
 		resultadoss.add(total);
 		return resultadoss;
 	}
-
+/*
 	@SuppressWarnings("unchecked")
 	public List<Flash> getFlashListCanal(List<Map<String, String>> permisos) {
 		List<Object[]> resultados;
@@ -155,4 +155,5 @@ public class JPAFlashDao implements FlashDao{
 		}
 		return resultadoss;
 	}
+	*/
 }

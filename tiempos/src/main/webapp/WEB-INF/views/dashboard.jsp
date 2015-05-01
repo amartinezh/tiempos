@@ -157,7 +157,9 @@
 
 							<!-- widget content -->
 							<div class="widget-body no-padding">
-
+							
+							<c:out value="Ingreso Ok"></c:out>
+<!-- 
 								<table class="table table-striped table-bordered" width="100%">
 									<thead>
 										<tr>
@@ -268,6 +270,7 @@
 										</tr>
 									</tbody>
 								</table>
+								 -->
 							</div>
 							<!-- end widget content -->
 

@@ -25,7 +25,7 @@ public class SimpleFlashManagerService implements FlashManagerService {
 	public List<Flash> getFlashList(List<Map<String, String>> permisos) {
 		return flashDao.getFlashList(permisos);
 	}	
-
+	/*
 	public List<Flash> getFlashListCanal(List<Map<String, String>> permisos) {
 		return flashDao.getFlashListCanal(permisos);
 	}
@@ -53,5 +53,5 @@ public class SimpleFlashManagerService implements FlashManagerService {
 	public List<Flash> getFlashListVendedor(List<Map<String, String>> permisos) {
 		return flashDao.getFlashListVendedor(permisos);
 	}
-	
+	*/
 }

@@ -33,8 +33,8 @@ public class FlashController {
 		if(model.containsAttribute("user_inicio") == true) {
 			session ses = (session)(model.asMap().get("user_inicio"));
 			model.addAttribute("flash", new Flash());
-			model.addAttribute("flash1ist", flashManagerService.getFlashList(ses.getPermisos()));
-			model.addAttribute("usuarioactuall", ses.getUsuario());
+			//model.addAttribute("flash1ist", flashManagerService.getFlashList(ses.getPermisos()));
+			//model.addAttribute("usuarioactuall", ses.getUsuario());
 			if(((session)(model.asMap().get("user_inicio"))).getPermisos().get(8).get("nivel").equalsIgnoreCase("exp")) {
 				model.addAttribute("mostrar", 1);
 			} else {
@@ -45,7 +45,7 @@ public class FlashController {
 			return "redirect:/index/ingreso";
 		}
 	}
-	
+	/*
 	@RequestMapping(value = "/canal", method = RequestMethod.GET)
 	public String lanzar1(Model model) {		
 		if(model.containsAttribute("user_inicio") == true) {			
@@ -252,5 +252,5 @@ public class FlashController {
 		status.setComplete();
 		return "redirect:/index/ingreso";
 	}
-
+*/
 }
